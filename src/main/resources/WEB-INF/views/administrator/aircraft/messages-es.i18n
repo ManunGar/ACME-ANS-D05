@@ -1,0 +1,31 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.aircraft.list.title = Listado de aviones
+administrator.aircraft.form.title = Detalles de aviones
+
+administrator.aircraft.list.label.airline = Avión
+administrator.aircraft.list.label.model = Modelo
+administrator.aircraft.list.label.registrationNumber = Numero de registro
+administrator.aircraft.list.label.aircraftStatus = Estado
+administrator.aircraft.list.label.capacity = Capacidad
+administrator.aircraft.list.label.cargoWeight = Peso de la carga
+administrator.aircraft.list.label.details = Detalles
+
+administrator.aircraft.list.button.create = Crear un nuevo avión
+administrator.aircraft.list.button.delete = Eliminar un avión existente
+administrator.aircraft.form.label.confirmation.create = ¿Estás seguro de que quieres crear el avión anterior?
+administrator.aircraft.form.label.confirmation.update = ¿Estás seguro de que quieres actualizar el avión anterior?
+administrator.aircraft.form.label.confirmation.delete = ¿Estás seguro de que quieres eliminar el avión anterior?
+administrator.aircraft.form.button.create = Crear avión
+administrator.aircraft.form.button.update = Actualizar avión
+administrator.aircraft.form.button.disable = Deshabilitar avión
+
+acme.validation.confirmation.message.aiport.registrationNumber = Ya existe otro aeropuerto con ese número de registro

@@ -1,0 +1,38 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+airline-manager.legs.list.title = List of Legs
+airline-manager.legs.form.title = Leg form
+manager.legs.list.label.departure = Departure
+manager.legs.list.label.arrival = Arrival
+manager.legs.list.label.status = Status
+manager.legs.list.label.departure-airport = Departure Airport
+manager.legs.list.label.arrival-airport = Arrival Airport
+manager.legs.list.label.aircraft = Aircraft
+manager.legs.list.label.flight = Flight
+manager.legs.list.label.flightNumber = Flight number
+
+manager.legs.form.label.confirmation.update = Confirm Changes?
+manager.legs.form.label.confirmation.create = Confirm Creation?
+
+manager.legs.list.button.create = Create
+manager.legs.form.button.create = Create
+manager.legs.form.button.update = Update
+manager.legs.form.button.publish = Publish
+manager.legs.form.button.delete = Delete
+
+acme.validation.legs.dates.message = Arrival date is before at departure date
+acme.validation.leg.airport.message = Airport origin and destination are the same
+acme.validation.legs.departure.message = The dates of this leg overlap with the dates of other legs.
+acme.validation.legs.departureAirportmessage = The airport, origin/destination does not coincide with the last leg
+acme.validation.legs.aircraft = This aircraft is used during another leg iteneration
+
+
+

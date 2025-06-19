@@ -1,0 +1,40 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+assistance-agent.claim.list.title = List of claims
+assistance-agent.claim.form.title = Details of a claim
+
+assistanceAgent.claim.list.label.registrationMoment = Registration moment
+assistanceAgent.claim.list.label.passengerEmail = Passenger Email
+assistanceAgent.claim.list.label.claimTypes = Claim type
+assistanceAgent.claim.list.label.accepted = Status
+
+assistanceAgent.claim.button.create = Create new Claim
+
+assistanceAgent.Claim.form.label.registrationMoment = registrationMoment
+assistanceAgent.Claim.form.label.passengerEmail = passengerEmail
+assistanceAgent.Claim.form.label.description = Description
+assistanceAgent.Claim.form.label.claimTypes = Claim type
+assistanceAgent.Claim.form.label.accepted = Status
+assistanceAgent.Claim.form.label.leg = Leg which is associated to this claim
+assistanceAgent.Claim.form.leg.label.departure = leg's departure moment
+assistanceAgent.Claim.form.leg.label.arrival = leg's arrival moment
+assistanceAgent.Claim.form.leg.label.status = leg's status
+assistanceAgent.Claim.form.button.trackingLogs = View tracking logs of this claim
+assistanceAgent.Claim.form.button.update = Update Claim
+assistanceAgent.Claim.form.button.publish = Publish Claim
+assistanceAgent.Claim.form.button.delete = Delete Claim
+assistanceAgent.Claim.form.button.create = Create Claim
+
+
+acme.validation.confirmation.message.lastNibble = The lastNibble must be filled if the booking is published
+acme.validation.confirmation.message.claim.leg = You must associate an existing Leg to the Claim
+acme.validation.confirmation.message.claim.draftMode = You are trying to public a Claim that is already published
+

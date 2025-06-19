@@ -1,0 +1,30 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.claim.list.title = Lista de quejas
+administrator.claim.form.title = Detalles de una queja
+
+assistanceAgent.claim.list.label.registrationMoment = Momento de registro
+assistanceAgent.claim.list.label.passengerEmail = Correo Electronico del pasajero
+assistanceAgent.claim.list.label.claimTypes = Tipo de queja
+assistanceAgent.claim.list.label.accepted = Estado
+
+assistanceAgent.Claim.form.label.registrationMoment = Momento de registro
+assistanceAgent.Claim.form.label.passengerEmail = Correo Electronico del pasajero
+assistanceAgent.Claim.form.label.description = Descripcion de la queja
+assistanceAgent.Claim.form.label.claimTypes = Tipo de queja
+assistanceAgent.Claim.form.label.accepted = Estado
+assistanceAgent.Claim.form.label.leg = Trayecto al que esta asociada la queja
+assistanceAgent.Claim.form.leg.label.departure = Fecha de salida del trayecto
+assistanceAgent.Claim.form.leg.label.arrival = Fecha de llegada del trayecto
+assistanceAgent.Claim.form.leg.label.status = Estado del trayecto
+assistanceAgent.Claim.form.button.trackingLogs = Ver tracking logs de esta queja
+
+acme.validation.confirmation.message.lastNibble = Los últimos digitos de la tarjeta de crédito deberán ser rellenados si la reserva es publicada

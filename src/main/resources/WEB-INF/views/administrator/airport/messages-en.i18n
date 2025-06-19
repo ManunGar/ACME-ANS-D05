@@ -1,0 +1,34 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.airport.list.title = List of airports
+administrator.airport.form.title = Airports form
+
+administrator.airport.list.label.name = name
+administrator.airport.list.label.iata-code = IATAcode
+administrator.airport.list.label.operationalscope = Operational scope
+administrator.airport.list.label.city = City
+administrator.airport.list.label.country = Country
+administrator.airport.list.label.website = Website
+administrator.airport.list.label.email = Email
+administrator.airport.list.label.contact-phone-number = Phone number
+
+administrator.airport.list.button.create = Create a new airport
+administrator.airport.form.label.confirmation.create = Are you sure you want to create the above airport?
+administrator.airport.form.label.confirmation.update = Are you sure you want to update the above airport?
+administrator.airport.form.button.create = Create airport
+administrator.airport.form.button.update = Update airport
+
+acme.validation.confirmation.message.aiport.IATAcode = There is already another airport with that IATA code
+acme.validation.confirmation.message.aiport.email = There is already another airport with that email
+
+
+
+

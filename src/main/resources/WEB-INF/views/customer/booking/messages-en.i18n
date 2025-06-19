@@ -1,0 +1,34 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+customer.booking.list.title = List of bookings
+customer.booking.form.title = Details of the booking
+
+authenticated.booking.list.label.locatorCode = Locator Code
+authenticated.booking.list.label.purchaseMoment = Purchase Moment
+authenticated.booking.list.label.travelClass = Travel Class
+authenticated.booking.list.label.lastNibble = Last Nibble (Optional)
+authenticated.booking.list.label.price = Price
+authenticated.booking.list.label.passenger = Passengers
+authenticated.booking.list.label.draftMode = draftMode
+authenticated.booking.list.label.flight = Flight
+
+authenticated.booking.form.button.create = Create booking
+authenticated.booking.form.button.update = Update booking
+authenticated.booking.form.button.publish = Publish booking
+authenticated.booking.form.button.passenger = List of passengers
+authenticated.booking-record.form.button.create = Create a booking record
+authenticated.booking.form.button.delete = Delete booking
+
+acme.validation.confirmation.message.lastNibble = The lastNibble must be filled if the booking is published
+acme.validation.confirmation.message.update = A booking can not be updated if it is published
+acme.validation.confirmation.message.booking.locator-code = There is already another booking with this locator code
+
+

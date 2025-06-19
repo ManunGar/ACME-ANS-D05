@@ -1,0 +1,32 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+customer.booking.list.title = Listado de Reservas
+customer.booking.form.title = Detalles de la Reserva
+
+authenticated.booking.list.label.locatorCode = Código de localización
+authenticated.booking.list.label.purchaseMoment = Momento de compra
+authenticated.booking.list.label.travelClass = Tipo de viaje
+authenticated.booking.list.label.lastNibble = Última tarjeta (Opcional)
+authenticated.booking.list.label.price = Precio
+authenticated.booking.list.label.passenger = Pasajeros
+authenticated.booking.list.label.draftMode = Estado de publicación
+authenticated.booking.list.label.flight = Vuelo
+
+authenticated.booking.form.button.create = Crear reserva
+authenticated.booking.form.button.update = Actualizar reserva
+authenticated.booking.form.button.publish = Publicar reserva
+authenticated.booking.form.button.passenger = Lista de pasajeros
+authenticated.booking-record.form.button.create = Crear un registro de reserva
+authenticated.booking.form.button.delete = Eliminar reserva
+
+acme.validation.confirmation.message.lastNibble = Los últimos digitos de la tarjeta de crédito deberán ser rellenados si la reserva es publicada
+acme.validation.confirmation.message.update = Una reserva no puede ser actualizada si está publicada
+acme.validation.confirmation.message.booking.locator-code = Ya existe otra reserva con este código de localizador

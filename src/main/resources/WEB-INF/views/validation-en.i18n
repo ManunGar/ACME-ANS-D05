@@ -1,0 +1,70 @@
+# validation-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+acme.validation.header.message  	= Must have from 1 to 50 characters
+acme.validation.text.message   		= Must have from 1 to 255 characters
+acme.validation.phone.message       = Must match +country-code (area-code) phone-number, where only the phone-number is mandatory 
+
+acme.validation.job.duplicated-ticker.message = The ticker is duplicated
+acme.validation.job.ticker.message			  = The ticker must have letters, digits, underscores, and hyphens only
+acme.validation.job.deadline.message		  = Deadline must be at least one week ahead
+acme.validation.job.workload.message          = Incorrect workload
+
+acme.validation.whine.redress.message	 	  = Provide some justification.
+
+acme.validation.NotNull.message = The Entity cannot be null
+
+acme.validation.drafMode.message = The Entity is not in draft mode
+
+acme.validation.FlightDraftMode.message = The flight cannot be published as it does not contain legs or has some unpublished legs 
+
+acme.validation.claim.indicator.message = The Indicator of Claim and its TrackingLog must be the same
+
+acme.validation.claim.leg.message = The Leg associated to the Claim must be in the past and published
+
+acme.validation.trackinLog.resolutionMandatory.message = The resolution of the TrackingLog must be written after resolutionPercentage reaches 100.00
+
+acme.validation.trackingLog.acceptedPending.message = The attribute accepted must be logical with the attributePercentage
+
+acme.validation.trackingLog.numberOfTrackingLogsCompleted.message = A Claim can only have 2 TrackingLog associated with resolutionPercentage = 100.00
+
+acme.validation.trackingLog.resolutionPercentage.message = The resolutionPercentage cannot be lower
+
+acme.validation.trackingLog.draftModeLogical.message = The attribute draftMode of a TrackingLog can only be false if its Claims attribute draftMode is false
+
+acme.validation.trackingLog.secondTrackingLog.numberOfTrackingLogs.message = Only when you have 2 trackingLogs resolved, one of them must be created after a dissatisfaction of the customer.
+
+acme.validation.trackingLog.secondTrackingLog.resolutionPercentage.message = This TrackingLog cannot be created after a dissatisfaction of a client because it has not resolutionPercentage = 100.00
+
+acme.validation.legs.message = The leg is not formatted or in the correct order
+
+acme.validation.Manager.identifier.name.message = The manager identification is not correct
+
+acme.validation.Customer.identifier.name.message = The identifier does not match the Client's initials
+
+acme.validation.text.identifier.letters = It must be 6 numbers and 2 or 3 capital letters, it must match with the two or three Client's initials
+
+acme.validation.text.identifier.pattern = The pattern is not well-form
+
+acme.validation.text.identifier = The identifier is not correct
+
+acme.validation.assistanceAgent.employeeCode.message = The employeeCode must be unique
+
+acme.validation.assistanceAgent.spokenLanguages.message = The format of spokenLanguages is: Spanish, English, German...
+
+acme.validation.text.IATAcode = The IATAcode is not correct
+
+acme.validation.text.message.phone = The phone must have between 6-15 numbers
+
+acme.validation.confirmation.message.passenger = The booking must have at least one passenger to be published
+
+acme.validation.confirmation.message.booking.locator-code.pattern = The locator code must match with the pattern
+
+acme.validation.text.identifier.duplicated = There is already another customer with that identifier

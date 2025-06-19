@@ -1,0 +1,32 @@
+key,name,picture,averageDwellTime,promotionCode,discount
+#service
+service-01,Servicio de prueba,"https://i.imgur.com/8YcXhS0.png",18.55,PEUC-25,EUR 210
+#name-variations
+service-02,Lorem ipsum dolor sit ame,"https://i.imgur.com/MtBRoNP.png",18.55,JMYR-73,EUR 210
+service-03,L,"https://i.imgur.com/NGLSjk6.png",18.55,OFUD-90,EUR 210
+service-04,"Lorem ipsum dolor sit amet, consectetur adipiscing","https://i.imgur.com/fihihcF.png",18.55,CIJC-64,EUR 210
+service-05,โลเร็ม อิปซัม,"https://i.imgur.com/2eVF1HG.png",18.55,VDBD-38,EUR 210
+service-06,لوريم إيبسوم,"https://i.imgur.com/CqtMSmM.png",18.55,DGHW-44,EUR 210
+service-07,洛伦·伊普森,"https://i.imgur.com/sgx1bFo.png",18.55,HIDH-32,EUR 210
+service-08,<marquee>Hacked</marquee>,"https://i.imgur.com/qu5SrLN.png",18.55,LSDM-77,EUR 210
+service-09,<script>alert(‘Hacked!’);</script>,"https://i.imgur.com/8n7KfX1.png",18.55,HGFD-13,EUR 210
+service-10,'' or 'A' = 'A ,"https://i.imgur.com/8n7KfX1.png",18.55,PYKA-55,EUR 210
+#pictureUrl-variations
+service-11,Servicio de prueba,"https://i.imgur.com/qu5SrLN.png",18.55,MDEQ-18,EUR 210
+service-12,Servicio de prueba,"https://i.imgur.com/sgx1bFo.png",18.55,DTMF-60,EUR 210
+service-13,Servicio de prueba,"https://i.imgur.com/CqtMSmM.png",18.55,EUTD-95,EUR 210
+service-14,Servicio de prueba,"https://i.imgur.com/2eVF1HG.png",18.55,PNTV-84,EUR 210
+#averageDwellTime-variations
+service-15,Servicio de prueba,"https://i.imgur.com/fihihcF.png",12.01,ZOPA-29,EUR 210
+service-16,Servicio de prueba,"https://i.imgur.com/NGLSjk6.png",0.01,CUBA-04,EUR 210
+service-17,Servicio de prueba,"https://i.imgur.com/MtBRoNP.png",24.00,AQKA-23,EUR 210
+#promotionCode-variations
+service-18,Servicio de prueba,"https://i.imgur.com/8YcXhS0.png",18.55,VKNY-78,EUR 210
+service-19,Servicio de prueba,"https://i.imgur.com/8YcXhS0.png",18.55,GDTR-69,EUR 210
+service-20,Servicio de prueba,"https://i.imgur.com/MtBRoNP.png",18.55,CVFP-12,EUR 210
+#discount-variations
+service-21,Servicio de prueba,"https://i.imgur.com/NGLSjk6.png",18.55,TFFI-11,EUR 500
+service-22,Servicio de prueba,"https://i.imgur.com/fihihcF.png",18.55,TFDC-22,EUR 0
+service-23,Servicio de prueba,"https://i.imgur.com/2eVF1HG.png",18.55,RBFM-96,EUR 1000
+
+

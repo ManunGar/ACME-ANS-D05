@@ -1,0 +1,70 @@
+﻿key,key:userAccount,identifier,phoneNumber,physicalAddress,city,country,earnedPoints
+customer-01,user-account-customer-01,CC393105,+657114920,street Valley Hill,Loughton,United Kingdom,120000
+customer-02,user-account-customer-02,CC388639,9535131423,Boulevard West Downtown Metropolitan District Grand City,Loughton,United Kingdom,499999
+#identifier-examples
+customer-04,user-account-customer-04,CC059543,+657114920,street Valley Hill,Loughton,United Kingdom,120000
+customer-05,user-account-customer-05,CC520005,+657114920,street Valley Hill,Loughton,United Kingdom,120000
+customer-06,user-account-customer-06,CC914622,+657114920,street Valley Hill,Loughton,United Kingdom,120000
+customer-07,user-account-customer-07,CC899659,+657114920,street Valley Hill,Loughton,United Kingdom,120000
+customer-08,user-account-customer-08,CC663703,+657114920,street Valley Hill,Loughton,United Kingdom,120000
+customer-09,user-account-customer-09,CC029827,+657114920,street Valley Hill,Loughton,United Kingdom,120000
+customer-10,user-account-customer-10,CC846415,+657114920,street Valley Hill,Loughton,United Kingdom,120000
+customer-11,user-account-customer-11,CC125162,+657114920,street Valley Hill,Loughton,United Kingdom,120000
+customer-12,user-account-customer-12,CC163851,+657114920,street Valley Hill,Loughton,United Kingdom,120000
+customer-13,user-account-customer-13,CC685959,+657114920,street Valley Hill,Loughton,United Kingdom,120000
+#phoneNumber-examples
+customer-14,user-account-customer-14,CC000001,+7615614472,street Valley Hill,Loughton,United Kingdom,120000
+customer-15,user-account-customer-15,CC000002,8232125108356,street Valley Hill,Loughton,United Kingdom,120000
+customer-16,user-account-customer-16,CC000003,956206,street Valley Hill,Loughton,United Kingdom,120000
+customer-17,user-account-customer-17,CC000004,+6249740065,street Valley Hill,Loughton,United Kingdom,120000
+customer-18,user-account-customer-18,CC000005,+69263572625,street Valley Hill,Loughton,United Kingdom,120000
+customer-19,user-account-customer-19,CC000006,+788966007,street Valley Hill,Loughton,United Kingdom,120000
+customer-20,user-account-customer-20,CC000007,245488467881896,street Valley Hill,Loughton,United Kingdom,120000
+customer-21,user-account-customer-21,CC000008,476992301,street Valley Hill,Loughton,United Kingdom,120000
+customer-22,user-account-customer-22,CC000009,1803484,street Valley Hill,Loughton,United Kingdom,120000
+customer-23,user-account-customer-23,CC000010,5367992,street Valley Hill,Loughton,United Kingdom,120000
+#physicalAddress-examples
+customer-24,user-account-customer-24,CC000011,5367992,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut",Loughton,United Kingdom,120000
+customer-25,user-account-customer-25,CC000012,5367992,"L",Loughton,United Kingdom,120000
+customer-26,user-account-customer-26,CC000013,5367992,"Lo",Loughton,United Kingdom,120000
+customer-27,user-account-customer-27,CC000014,5367992,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",Loughton,United Kingdom,120000
+customer-28,user-account-customer-28,CC000015,5367992,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",Loughton,United Kingdom,120000
+customer-29,user-account-customer-29,CC000016,5367992,"โลเร็ม อิปซัม",Loughton,United Kingdom,120000
+customer-30,user-account-customer-30,CC000017,5367992,"لوريم إيبسوم",Loughton,United Kingdom,120000
+customer-31,user-account-customer-31,CC000018,5367992,"洛伦·伊普森",Loughton,United Kingdom,120000
+customer-32,user-account-customer-32,CC000019,5367992,"<marquee>Hacked</marquee>",Loughton,United Kingdom,120000
+customer-33,user-account-customer-33,CC000020,5367992,"<script>alert(‘Hacked!’);</script>",Loughton,United Kingdom,120000
+customer-34,user-account-customer-34,CC000021,5367992,"'' or 'A' = 'A",Loughton,United Kingdom,120000
+#city-examples
+customer-35,user-account-customer-35,CC000022,5367992,street Valley Hill,"Lorem ipsum dolor sit amet",United Kingdom,120000
+customer-36,user-account-customer-36,CC000023,5367992,street Valley Hill,"L",United Kingdom,120000
+customer-37,user-account-customer-37,CC000024,5367992,street Valley Hill,"Lo",United Kingdom,120000
+customer-38,user-account-customer-38,CC000025,5367992,street Valley Hill,"Lorem ipsum dolor sit amet, consectetur adipiscin",United Kingdom,120000
+customer-39,user-account-customer-39,CC000026,5367992,street Valley Hill,"Lorem ipsum dolor sit amet, consectetur adipiscing",United Kingdom,120000
+customer-40,user-account-customer-40,CC000027,5367992,street Valley Hill,"โลเร็ม อิปซั",United Kingdom,120000
+customer-41,user-account-customer-41,CC000028,5367992,street Valley Hill,"لوريم إيبسوم",United Kingdom,120000
+customer-42,user-account-customer-42,CC000029,5367992,street Valley Hill,"洛伦·伊普森",United Kingdom,120000
+customer-43,user-account-customer-43,CC000030,5367992,street Valley Hill,"<marquee>Hacked</marquee>",United Kingdom,120000
+customer-44,user-account-customer-44,CC000031,5367992,street Valley Hill,"<script>alert(‘Hacked!’);</script>",United Kingdom,120000
+customer-45,user-account-customer-45,CC000032,5367992,street Valley Hill,"'' or 'A' = 'A",United Kingdom,120000
+#country-examples
+customer-46,user-account-customer-46,CC000033,5367992,street Valley Hill,Loughton,"Lorem ipsum dolor sit amet",120000
+customer-47,user-account-customer-47,CC000034,5367992,street Valley Hill,Loughton,"L",120000
+customer-48,user-account-customer-48,CC000035,5367992,street Valley Hill,Loughton,"Lo",120000
+customer-49,user-account-customer-49,CC000036,5367992,street Valley Hill,Loughton,"Lorem ipsum dolor sit amet, consectetur adipiscin",120000
+customer-50,user-account-customer-50,CC000037,5367992,street Valley Hill,Loughton,"Lorem ipsum dolor sit amet, consectetur adipiscing",120000
+customer-51,user-account-customer-51,CC000038,5367992,street Valley Hill,Loughton,"โลเร็ม อิปซัม",120000
+customer-52,user-account-customer-52,CC000039,5367992,street Valley Hill,Loughton,وريم إيبسوم,120000
+customer-53,user-account-customer-53,CC000040,5367992,street Valley Hill,Loughton,"洛伦·伊普森",120000
+customer-54,user-account-customer-54,CC000041,5367992,street Valley Hill,Loughton,"<marquee>Hacked</marquee>",120000
+customer-55,user-account-customer-55,CC000042,5367992,street Valley Hill,Loughton,"<script>alert(‘Hacked!’);</script>",120000
+customer-56,user-account-customer-56,CC000043,5367992,street Valley Hill,Loughton,"'' or 'A' = 'A",120000
+#earnedPoints-examples
+customer-57,user-account-customer-57,CC000044,5367992,street Valley Hill,Loughton,United Kingdom,250000
+customer-58,user-account-customer-58,CC000045,5367992,street Valley Hill,Loughton,United Kingdom,0
+customer-59,user-account-customer-59,CC000046,5367992,street Valley Hill,Loughton,United Kingdom,1
+customer-60,user-account-customer-60,CC000047,5367992,street Valley Hill,Loughton,United Kingdom,499999
+
+
+
+

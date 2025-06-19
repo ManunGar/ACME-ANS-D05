@@ -1,0 +1,37 @@
+key,key:technician,type,description,priority,estimatedDuration,draftMode
+#task
+task-01,technician-01,REPAIR,The wings of the plane are broken,8,120,true
+#type-variations
+task-02,technician-01,MAINTENANCE,The wings of the plane are broken,8,120,true
+task-03,technician-01,INSPECTION,The wings of the plane are broken,8,120,true
+task-04,technician-01,REPAIR,The wings of the plane are broken,8,120,false
+task-05,technician-01,SYSTEM_CHECK,The wings of the plane are broken,8,120,true
+#description-variations
+task-06,technician-01,REPAIR,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",8,120,false
+task-07,technician-01,REPAIR,L,8,120,false
+task-08,technician-01,REPAIR,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",8,120,true
+task-09,technician-01,REPAIR,โลเร็ม อิปซัม,8,120,false
+task-10,technician-01,REPAIR,لوريم إيبسوم,8,120,false
+task-11,technician-01,REPAIR,โ洛伦·伊普森,8,120,false
+task-12,technician-01,REPAIR,<marquee>Hacked</marquee>,8,120,true
+task-13,technician-01,REPAIR,<script>alert(‘Hacked!’);</script>,8,120,true
+task-14,technician-01,REPAIR,'' or 'A' = 'A,8,120,true
+#priority-variations
+task-15,technician-01,REPAIR,The wings of the plane are broken,5,120,false
+task-16,technician-01,REPAIR,The wings of the plane are broken,0,120,true
+task-17,technician-01,REPAIR,The wings of the plane are broken,10,120,false
+#estimatedDuration-variations
+task-18,technician-01,REPAIR,The wings of the plane are broken,8,500,true
+task-19,technician-01,REPAIR,The wings of the plane are broken,8,0,false
+task-20,technician-01,REPAIR,The wings of the plane are broken,8,1000,false
+#draftMode-variations
+task-21,technician-01,REPAIR,The wings of the plane are broken,8,120,true
+task-22,technician-01,REPAIR,The wings of the plane are broken,8,120,false
+#random-variations
+task-23,technician-02,REPAIR,prueba 1 tecnico 2,2,60,false
+task-24,technician-02,REPAIR,prueba 2 tecnico 2,2,60,true
+task-25,technician-02,REPAIR,prueba 3 tecnico 2,2,60,true
+task-26,technician-02,REPAIR,prueba 4 tecnico 2,2,60,false
+task-27,technician-02,REPAIR,prueba 5 tecnico 2,2,60,false
+task-28,technician-02,REPAIR,prueba 6 tecnico 2,2,60,true
+

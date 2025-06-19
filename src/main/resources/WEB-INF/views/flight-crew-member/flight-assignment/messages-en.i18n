@@ -1,0 +1,34 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+flightCrewMember.flightAssignament.list.title = List of Flight Assignments
+flightCrewMember.flight-assignament.form.title = Flight Assignment form 
+
+
+flightCrewMember.flightAssignament.form.label.leg = Leg:
+flightCrewMember.flightAssignament.form.label.flightCrewMember = Flight Crew Member:
+flightCrewMember.flightAssignament.form.label.confirmation = Confirm the Flight Assignment 
+flightCrewMember.flightAssignament.form.label.duty = Duty:
+flightCrewMember.flightAssignament.form.label.moment = Moment: 
+flightCrewMember.flightAssignament.form.label.current-status = Status:
+flightCrewMember.flightAssignament.form.label.remarks = Remarks:
+
+		
+flightCrewMember.flightAssignament.form.button.delete = Delete
+flightCrewMember.flightAssignament.form.button.create = Create
+flightCrewMember.flightAssignament.form.button.update = Update
+flightCrewMember.flightAssignament.form.button.publish = Publish
+flightCrewMember.flightAssignament.form.button.activityLog = Activity Logs
+
+flightCrewMember.flightAssignament.list.label.duty = Duty
+flightCrewMember.flightAssignament.list.label.moment = Moment
+flightCrewMember.flightAssignament.list.label.current-status = Status
+flightCrewMember.flightAssignament.list.label.remarks = Remarks
+flightCrewMember.flightAssignament.list.button.create = Create

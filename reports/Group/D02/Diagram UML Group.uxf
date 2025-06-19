@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>343</x>
+      <y>238</y>
+      <w>91</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+OperationalScope
+--
+INTERNATIONAL
+DOMESTIC
+REGIONAL
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>238</x>
+      <y>329</y>
+      <w>448</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Airport
+--
++ name: String {Mandatory, ValidShortText, Automapped}
++ IATAcode: String {Mandatory, ValidIATACode, Column(unique = true)}
++ operationalScope: OperationalScope {Mandatory, Valid, Automapped}
++ city: String {Mandatory, ValidShortText, Automapped}
++ country: String {Mandatory, ValidShortText, Automapped}
++ website: String {Optional, ValidUrl, Automapped}
++ email: String {Optional, ValidEmail, Column(unique = true)}
++ contactPhoneNumber: String {Optional, ValidPhoneNumber, Automapped}
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>588</x>
+      <y>238</y>
+      <w>77</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+Type
+--
+LUXURY
+STANDARD
+LOW_COST
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>735</x>
+      <y>329</y>
+      <w>476</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Airline
+--
++ name: String {Mandatory, ValidShortText, Automapped}
++ IATAcode: String {Mandatory, ValidIATACode, Column(unique = true)}
++ website: String {Mandatory, ValidUrl, Automapped}
++ type: Type {Mandatory, Valid, Automapped}
++ foundationMoment: Date {Mandatory, ValidMoment(past = true), Temporal(TemporalType.TIMESTAMP)}
++ emailAddress: String {Optional, ValidEmail, Automapped}
++ phoneNumber: String {Optional, ValidPhoneNumber, Automapped}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>126</y>
+      <w>448</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Aircraft
+--
++ model: String {Mandatory, ValidShortText, Automapped}
++ registrationNumber: String {Mandatory, ValidShortText, Column(unique = true)}
++ capacity: Integer {Mandatory, ValidNumber(min = 1, max = 800), Automapped}
++ cargoWeight: Integer {Mandatory, ValidNumber(min = 2000, max = 50000), Automapped}
++ status: AircraftStatus {Mandatory, Valid, Automapped}
++ details: String {Optional, ValidLongText, Automapped}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>469</x>
+      <y>238</y>
+      <w>91</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+AircraftStatus
+--
+ACTIVE
+MAINTENANCE
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>938</x>
+      <y>231</y>
+      <w>28</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=1
+m2= *</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>252</x>
+      <y>28</y>
+      <w>448</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+AdministratorDashboard
+--
+						
++ totalNumberOfAirportsByOperationalScope: Integer						
++ numberOfAirlinesByType: Integer						
++ airlinesWithBothEmailAndPhone: Double						
++ activeAircrafts: Double						
++ nonActiveAircrafts: Double						
++ reviewsWithScoreAboveFive: Double							
++ numberOfReviewsLastTenWeeks: Integer						
++ averageReviewsLastTenWeeks: Double						
++ minimumReviewsLastTenWeeks: Double						
++ maximumReviewsLastTenWeeks: Double					
++ standardDeviationLastTenWeeks: Double
+
+bg=CYAN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>245</x>
+      <y>518</y>
+      <w>448</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Service
+--
++ name: String {Mandatory, ValidShortText, Automapped}
++ pictureUrl: String {Mandatory, ValidUrl, Automapped}
++ averageDwellTime: Double {Mandatory, ValidNumber(min = 0.01, max = 24.00), Automapped}
++ promotionCode: String {Optional, ValidString(pattern = "^[A-Z]{4}-[0-9]{2}$"), Column(unique = true)}
++ discount: Money {Optional, ValidMoney(min = 0, max = 1000), Automapped}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>735</x>
+      <y>511</y>
+      <w>448</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Review
+--
++ name: String {Mandatory, ValidShortText, Automapped}
++ moment: Date {Mandatory, ValidMoment(past = true), Temporal(TemporalType.TIMESTAMP)}
++ subject: String {Mandatory, ValidShortText, Automapped}
++ text: String {Mandatory, ValidLongText, Automapped}
++ score: Double {Optional, ValidNumber(min = 0, max = 10, integer = 2, fraction = 2), Automapped}
++ recommended: Boolean {Optional, Automapped}
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>245</x>
+      <y>665</y>
+      <w>133</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidShortText
+--
++ NotBlank
++ Length(min=1, max=50)
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>441</x>
+      <y>665</y>
+      <w>133</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidLongText
+--
++ NotBlank
++ Length(min=1, max=255)
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>637</x>
+      <y>665</y>
+      <w>133</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidIATACode	
+--
++ NotBlank
++ Regexp = "^[A-Z]{3}$"
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>833</x>
+      <y>658</y>
+      <w>259</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidPhoneNumber
+--
++ NotBlank
++ Regexp = "^\\+?\\d{6,15}$"
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -1,0 +1,96 @@
+# menu-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# master.menu.anonymous #######################################################
+
+master.menu.anonymous = Anónimo
+master.menu.anonymous.favourite-student1 = 21154890L: Nuño García, Manuel
+master.menu.anonymous.favourite-student2 = 77693260L: Moreno Ríos, Juan
+master.menu.anonymous.favourite-student3 = 29534036N: Portillo Sanchez, Alonso
+master.menu.anonymous.favourite-student4 = 47560992M: Ruiz López, Juan Antonio
+master.menu.anonymous.favourite-student5 = 29519141K: Ruiz Martín, Alejandro
+
+
+# master.menu.administrator ###################################################
+
+master.menu.administrator = Administrador
+master.menu.administrator.list-user-accounts = Ver cuentas de usuario
+master.menu.booking.published = Reservas publicadas
+master.menu.administrator.list-airport = Ver aeropuertos 
+master.menu.administrator.list-airlines = Ver aerolineas
+master.menu.administrator.list-aircrafts = Ver aviones
+master.menu.administrator.populate-db-initial = Poblar BD (inicial)
+master.menu.administrator.populate-db-sample = Poblar BD (ejemplos)
+master.menu.administrator.shut-system-down = Parar el sistema
+
+# master.menu.assistanceAgent ########################################################
+
+master.menu.assistanceAgent = assistanceAgent
+assistanceAgent.claim.list.button.list.resolved = Listar quejas resueltas
+assistanceAgent.claim.list.button.list.notResolved = Listar quejas pendientes
+
+# master.menu.provider ########################################################
+
+master.menu.provider = Proveedor
+master.menu.provider.favourite-link = Enlace favorito
+
+# master.menu.consumer ##########################################################
+
+master.menu.consumer = Consumidor
+master.menu.consumer.favourite-link = Enlace favorito
+
+# master.menu.manager ##########################################################
+
+master.menu.manager = Manager
+master.menu.manager.favourite-link = Enlace favorito
+master.menu.manager.list-flight = Listado de vuelos
+
+# master.menu.customer ##########################################################
+
+master.menu.customer = Comprador
+master.menu.customer = Reservas
+master.menu.passenger = Pasajeros
+master.menu.booking = Reservas 
+
+# master.menu.technician ##########################################################
+
+master.menu.technician = Técnico
+
+# master.menu.task ##########################################################
+
+master.menu.task = Tasks
+master.menu.task.list-my-tasks = Listar mis tareas
+master.menu.task.list-published-tasks = Listar tareas publicadas
+
+# master.menu.maintenance-record ##########################################################
+
+master.menu.maintenance-record = Maintenance Records
+master.menu.maintenance-record.list-my-maintenance-records= Listar mis registros de mantenimiento
+master.menu.maintenance-record.list-published-maintenance-records = Listar registros de mantenimiento publicados
+
+# master.menu.user-account ####################################################
+
+master.menu.user-account = Cuenta
+master.menu.user-account.general-profile = Perfil general
+master.menu.user-account.become-provider = Hacerse proveedor
+master.menu.user-account.provider-profile = Perfil de proveedor
+master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.consumer-profile = Perfil de consumidor
+master.menu.user-account.become-assistance-agent = Hacerse agente de vuelo
+master.menu.user-account.assistance-agent-profile = Perfil de asistente de vuelo
+
+# master.menu.flight-crew-member ##########################################################
+
+master.menu.flight-crew-member = Miembro de la tripulación
+master.menu.flight-crew-member.flight-assignment.completed-list = Lista de asignaciones de vuelo con tramos completados
+master.menu.flight-crew-member.flight-assignment.not-completed-list = List de asignaciones de vuelo con tramos planeados
+
+master.menu.user-account.become-customer = Hacerse comprador
+

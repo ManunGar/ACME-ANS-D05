@@ -1,0 +1,42 @@
+key,registrationMoment,incidentType,description,severityLevel,key:flightAssignment
+
+#base-example
+log-00,2024/01/01 10:00,System Issue,"Minor software glitch in navigation system.",2,assignment-00
+
+#registrationMoment-example
+log-01,2000/01/01 00:00,Mechanical Failure,"Engine check required before takeoff.",4,assignment-01
+log-02,2000/01/01 00:01,Communication Error,"Temporary loss of ATC communication.",3,assignment-02
+log-03,2024/12/31 23:59,Cabin Issue,"Passenger seat malfunction detected.",5,assignment-03
+log-04,2025/01/01 00:00,Security Breach,"Unauthorized attempt to access cockpit.",8,assignment-04
+
+#incidentType-example
+log-05,2023/11/20 14:45,L,"Small fuel leak detected during pre-flight checks.",7,assignment-05
+log-06,2023/10/05 18:00,Lo,"Power surge in cockpit instruments.",6,assignment-06
+log-07,2019/06/30 15:45,"Lorem ipsum dolor sit amet, consectetur adipiscin","Flight delayed due to severe turbulence.",4,assignment-07
+log-08,2019/06/30 15:45,"Lorem ipsum dolor sit amet, consectetur adipiscing","Flight delayed due to severe turbulence.",4,assignment-08
+
+#description-example
+log-13,2012/11/08 12:30,Pilot Illness,L,3,assignment-15
+log-14,2011/10/01 08:15,Crew Miscommunication,Lo,2,assignment-16
+log-15,2010/09/21 14:05,Cargo Issue,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",4,assignment-17
+log-16,2009/08/14 23:45,Technical Fault,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",5,assignment-18
+
+#severityLevel-example
+log-17,2008/07/30 05:20,Passenger Medical,"Emergency landing due to passenger illness.",10,assignment-19
+log-18,2007/06/25 10:55,Cabin Decompression,"Rapid loss of cabin pressure.",0,assignment-20
+
+#incidetType-stringTest
+log-09,2018/05/22 13:20,โลเร็ม อิปซัม,"Severe turbulence caused flight diversion.",3,assignment-09
+log-10,2017/04/12 11:10,لوريم إيبسوم,"Crew miscommunication during landing.",4,assignment-10
+log-11,2016/03/05 09:00,洛伦·伊普森,"Navigation system failure reported.",5,assignment-11
+log-12,2015/02/18 22:40,<marquee>Hacked</marquee>,"Security breach attempt detected.",6,assignment-12
+
+#description-stringTest
+log-19,2006/05/18 17:30,Security Alert,โลเร็ม อิปซัม,1,assignment-00
+log-20,2005/04/12 09:40,Flight Control Failure,لوريم إيبسوم,3,assignment-00
+log-21,2004/03/08 12:15,Engine Malfunction,洛伦·伊普森,4,assignment-00
+log-22,2003/02/05 22:00,Software Glitch,<marquee>Hacked</marquee>,5,assignment-00
+log-23,2002/01/01 01:30,Cargo Shift,<script>alert(‘Hacked!’);</script>,6,assignment-00
+log-24,2001/12/15 16:10,Navigation Error,'' or 'A' = 'A,7,assignment-00
+
+#flightAssignment - no singular values

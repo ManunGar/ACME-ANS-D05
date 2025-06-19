@@ -1,0 +1,27 @@
+key,draftMode,duty,moment,status,remarks,key:flightCrewMember,key:leg
+#base-example,true,"","","","",""
+assignment-00,true,PILOT,2024/01/01 10:00,CONFIRMED,Standard duty assignment.,crew-29,leg-00
+#duty-example
+assignment-01,true,CO_PILOT,2023/12/15 08:30,CONFIRMED,Assigned as co-pilot for the flight.,crew-01,leg-01
+assignment-02,true,LEAD_ATTENDANT,2023/11/20 14:45,CONFIRMED,Lead flight attendant for long-haul.,crew-02,leg-02
+assignment-03,true,CABIN_ATTENDANT,2023/10/05 18:00,PENDING,First-time duty as a cabin attendant.,crew-03,leg-03
+#moment-example
+assignment-04,true,PILOT,2000/01/01 00:00,CONFIRMED,Last-minute assignment.,crew-04,leg-04
+assignment-05,true,CO_PILOT,2000/01/01 00:01,PENDING,Reassignment due to schedule changes.,crew-05,leg-05
+assignment-06,true,LEAD_ATTENDANT,2024/12/31 23:59,CANCELLED,Flight cancelled due to weather.,crew-06,leg-06
+assignment-07,true,CABIN_ATTENDANT,2019/06/30 15:45,CONFIRMED,Routine flight assignment.,crew-07,leg-07
+assignment-08,true,PILOT,2018/05/22 13:20,CANCELLED,Technical issue detected before takeoff.,crew-08,leg-08
+assignment-09,true,LEAD_ATTENDANT,2017/04/12 11:10,PENDING,Standby for additional assignments.,crew-09,leg-09
+#status-example
+assignment-10,true,CO_PILOT,2016/03/05 09:00,CONFIRMED,L,crew-10,leg-20
+assignment-11,true,PILOT,2015/02/18 22:40,CANCELLED,Lo,crew-11,leg-21
+assignment-12,true,LEAD_ATTENDANT,2014/01/25 06:30,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",crew-12,leg-22
+assignment-13,true,CO_PILOT,2011/10/01 08:15,CONFIRMED,لوريم إيبسوم,crew-01,leg-21
+assignment-14,true,LEAD_ATTENDANT,2010/09/21 14:05,PENDING,洛伦·伊普森,crew-16,leg-01
+assignment-15,true,CABIN_ATTENDANT,2009/08/14 23:45,CANCELLED,<marquee>Hacked</marquee>,crew-17,leg-02
+assignment-16,true,PILOT,2008/07/30 05:20,CONFIRMED,<script>alert(‘Hacked!’);</script>,crew-10,leg-03
+assignment-17,true,CO_PILOT,2007/06/25 10:55,PENDING,'' or 'A' = 'A,crew-19,leg-04
+assignment-18,true,LEAD_ATTENDANT,2025/01/01 00:00,CANCELLED,Flight cancelled due to something.,crew-20,leg-20
+#draftMode-test
+assignment-19,false,PILOT,2016/03/05 09:00,PENDING,Test assignment with draftMode = false.,crew-21,leg-21
+assignment-20,true,CABIN_ATTENDANT,2016/03/05 09:01,PENDING,Test assignment with draftMode = true.,crew-22,leg-22

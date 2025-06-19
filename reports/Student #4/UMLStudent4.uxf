@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <help_text/>
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>175</x>
+      <y>63</y>
+      <w>462</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+AssistanceAgent
+--
++ employeeCode: String {Mandatory, ValidIdentifier, Column(unique = true)}
++ spokenLanguages: String {Mandatory, ValidLongText, Automapped}
++ moment: Date {Mandatory, ValidMoment(past = true), Temporal(TemporalType.TIMESTAMP)}
++ briefBio: String {Optional, ValidLongText, Automapped}
++ salary: Money {Optional, ValidMoney, Automapped}
++ photo: String {Optional, ValidUrl, Automapped}
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>273</y>
+      <w>476</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Claim
+--
++ registrationMoment: Date {Mandatory, ValidMoment(past = true), Temporal(TemporalType.TIMESTAMP)}
++ passengerEmail: String {Mandatory, ValidEmail, Automapped}
++ description: String {Mandatory, ValidLongText, Automapped}
++ claimType: ClaimTypes {Mandatory, Valid, Automapped}
++ draftMode: boolean {Mandatory, Automapped}
+
+--
+\+ accepted: AcceptedIndicator
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>483</y>
+      <w>476</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+TrackingLog
+--
++ lastUpdateMoment: Date {Mandatory, ValidMoment(past = true), Temporal(TemporalType.TIMESTAMP)}
++ step: String {Mandatory, ValidShortText, Automapped}
++ resolutionPercentage: double {Mandatory, ValidScore, Automapped}
++ accepted: AcceptedIndicator {Mandatory, Valid, Automapped}
++ draftMode: boolean {Mandatory, Automapped}
++ createdMoment: Date {Mandatory, ValidMoment(past = true), Temporal(TemporalType.TIMESTAMP)}
++ secondTrackingLog: boolean {Mandatory, Automapped}
++ resolution: String {Optional, ValidLongText, Automapped}
+--
+\+ validResolution: boolean
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>609</x>
+      <y>273</y>
+      <w>98</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Airline
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>693</x>
+      <y>70</y>
+      <w>147</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;ENUM&gt;&gt;
+ClaimTypes
+--
+FLIGHT_ISSUES
+LUGGAGE_ISSUES
+SECURITY_INCIDENT
+OTHER_ISSUES
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>889</x>
+      <y>70</y>
+      <w>147</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;ENUM&gt;&gt;
+AcceptedIndicator
+--
+ACCEPTED
+PENDING
+REJECTED
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>455</x>
+      <y>189</y>
+      <w>168</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=*
+m2=1
+
+
+works for</panel_attributes>
+    <additional_attributes>10.0;10.0;220.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>231</x>
+      <y>399</y>
+      <w>49</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=1
+m2=*
+tracks</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>189</y>
+      <w>147</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=*
+m2=1
+
+
+registers</panel_attributes>
+    <additional_attributes>10.0;120.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>777</x>
+      <y>196</y>
+      <w>301</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+AssistanceAgentDashboard
+--
++ ratioOfClaimsResolvedSuccesfully: Double
++ ratioOfClaimsRejected: Double
++ topThreeMonthsWithHighestNumberOfClaims: Double
++ averageDeviationOfLogsTheirClaimsHave: Double
++ minimumDeviationOfLogsTheirClaimsHave: Double
++ maximumDeviationOfLogsTheirClaimsHave: Double
++ standardDeviationOfLogsTheirClaimsHave: Double
++ averageNumberOfClaimsTheyAssistedTheLastMonth: Double
++ minimumNumberOfClaimsTheyAssistedTheLastMonth: Double
++ maximumNumberOfClaimsTheyAssistedTheLastMonth: Double
++ standardNumberOfClaimsTheyAssistedTheLastMonth: Double
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>777</x>
+      <y>539</y>
+      <w>301</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidTrackingLog
+--
++ resolution cannot be blank or null if resolutionPercentage == 100.
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>777</x>
+      <y>455</y>
+      <w>301</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidClaim
+--
++ accepted of claim and its trackingLog must be the same if 
+resolutionPercentage of the trackingLog is 100.
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>609</x>
+      <y>329</y>
+      <w>98</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Legs
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>469</x>
+      <y>329</y>
+      <w>154</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=*
+m2=1
+
+
+request or complain</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>777</x>
+      <y>623</y>
+      <w>308</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidIdentifier
+--
++ NotBlank
++ Regexp = "^[A-Z]{2,3}\\d{6}$"
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>777</x>
+      <y>378</y>
+      <w>308</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidAssistanceAgent
+--
++ Validates employeeCode is unique
++ Validates the format of spokenLanguages is correct
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

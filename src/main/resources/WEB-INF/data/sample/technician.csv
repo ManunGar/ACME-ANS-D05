@@ -1,0 +1,46 @@
+key,key:userAccount,licenseNumber,phoneNumber,specialisation,passedAnnualHealthTest,yearsOfExperience,certifications
+#technicians
+technician-01,user-account-technician-01,AAA123456,+34667158963,hydraulics,true,14,FAA Repairman Certificate
+technician-02,user-account-technician-02,AAB123456,954289107,structures,true,25,Aircraft Maintenance Engineer
+#licenseNumber-variations
+technician-04,user-account-technician-04,BBB123456,+34667158963,hydraulics,true,14,FAA Repairman Certificate
+technician-05,user-account-technician-05,HKF183269,+34667158963,hydraulics,true,14,FAA Repairman Certificate
+technician-06,user-account-technician-06,AB325914,+34667158963,hydraulics,true,14,FAA Repairman Certificate
+technician-07,user-account-technician-07,XL969098,+34667158963,hydraulics,true,14,FAA Repairman Certificate
+#phoneNumber-variations
+technician-08,user-account-technician-08,CCC123456,540163,hydraulics,true,14,FAA Repairman Certificate
+technician-09,user-account-technician-09,CCD123456,+215320516163234,hydraulics,true,14,FAA Repairman Certificate
+technician-10,user-account-technician-10,CCF123456,+752156384,hydraulics,true,14,FAA Repairman Certificate
+technician-11,user-account-technician-11,CCG123456,746985478621,hydraulics,true,14,FAA Repairman Certificate
+technician-12,user-account-technician-12,CCE123456,784520516166954,hydraulics,true,14,FAA Repairman Certificate
+technician-13,user-account-technician-13,CCH123456,+325914,hydraulics,true,14,FAA Repairman Certificate
+#specialisation-variations
+technician-14,user-account-technician-14,DDD123456,+34667158963,Lorem ipsum dolor sit amet,true,14,FAA Repairman Certificate
+technician-15,user-account-technician-15,DDE123456,+34667158963,L,true,14,FAA Repairman Certificate
+technician-16,user-account-technician-16,DDF123456,+34667158963,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,14,FAA Repairman Certificate
+technician-17,user-account-technician-17,DDG123456,+34667158963,โลเร็ม อิปซัม,true,14,FAA Repairman Certificate
+technician-18,user-account-technician-18,DDH123456,+34667158963,لوريم إيبسوم,true,14,FAA Repairman Certificate
+technician-19,user-account-technician-19,DDI123456,+34667158963,โ洛伦·伊普森,true,14,FAA Repairman Certificate
+technician-20,user-account-technician-20,DDJ123456,+34667158963,<marquee>Hacked</marquee>,true,14,FAA Repairman Certificate
+technician-21,user-account-technician-21,DDK123456,+34667158963,<script>alert(‘Hacked!’);</script>,true,14,FAA Repairman Certificate
+technician-22,user-account-technician-22,DDL123456,+34667158963,'' or 'A' = 'A,true,14,FAA Repairman Certificate
+#passedAnnualHealthTest-variations
+technician-23,user-account-technician-23,EEE123456,+34667158963,hydraulics,true,60,FAA Repairman Certificate
+technician-24,user-account-technician-24,EEF123456,+34667158963,hydraulics,false,60,FAA Repairman Certificate
+#yearsOfExperience-variations
+technician-25,user-account-technician-25,FFF123456,+34667158963,hydraulics,true,60,FAA Repairman Certificate
+technician-26,user-account-technician-26,FFG123456,+34667158963,hydraulics,true,0,FAA Repairman Certificate
+technician-27,user-account-technician-27,FFH123456,+34667158963,hydraulics,true,120,FAA Repairman Certificate
+technician-28,user-account-technician-28,FFI123456,+34667158963,hydraulics,true,37,FAA Repairman Certificate
+technician-29,user-account-technician-29,FFJ123456,+34667158963,hydraulics,true,105,FAA Repairman Certificate
+#certifications-variations
+technician-30,user-account-technician-30,GGG123456,+34667158963,hydraulics,true,60,Lorem ipsum dolor sit amet
+technician-31,user-account-technician-31,GGH123456,+34667158963,hydraulics,true,60,""
+technician-32,user-account-technician-32,GGI123456,+34667158963,hydraulics,true,60,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*"
+technician-33,user-account-technician-33,GGJ123456,+34667158963,hydraulics,true,60,โลเร็ม อิปซัม
+technician-34,user-account-technician-34,GGK123456,+34667158963,hydraulics,true,60,وريم إيب
+technician-35,user-account-technician-35,GGL123456,+34667158963,hydraulics,true,60,โ洛伦·伊普森
+technician-36,user-account-technician-36,GGM123456,+34667158963,hydraulics,true,60,<marquee>Hacked</marquee>
+technician-37,user-account-technician-37,GGN123456,+34667158963,hydraulics,true,60,<script>alert(‘Hacked!’);</script>
+technician-38,user-account-technician-38,GGO123456,+34667158963,hydraulics,true,60,'' or 'A' = 'A
+

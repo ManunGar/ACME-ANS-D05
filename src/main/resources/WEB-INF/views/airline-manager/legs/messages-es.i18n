@@ -1,0 +1,40 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+airline-manager.flight.list.title = Listado de Vuelos
+airline-manager.flight.form.title = Detalles de Vuelos
+
+airline-manager.legs.list.title = Lista de Tramos
+airline-manager.legs.form.title = Detalles del Tramo
+manager.legs.list.label.departure = Salida
+manager.legs.list.label.arrival = Llegada
+manager.legs.list.label.status = Estado
+manager.legs.list.label.departure-airport = Aeropuerto de Salida
+manager.legs.list.label.arrival-airport = Aeropuerto de Llegada
+manager.legs.list.label.aircraft = Avión
+manager.legs.list.label.flight = Vuelo
+manager.legs.list.label.flightNumber = Número del Vuelo
+
+manager.legs.form.label.confirmation.update = ¿Confirmar Cambios?
+manager.legs.form.label.confirmation.create = ¿Confirmar Creacion?
+
+manager.legs.list.button.create = Crear
+manager.legs.form.button.create = Crear
+manager.legs.form.button.update = Cambiar
+manager.legs.form.button.publish = Publicar
+manager.legs.form.button.delete = Eliminar
+
+acme.validation.legs.dates.message = La fecha de llegada es anterior a la fecha de salida
+acme.validation.leg.airport.message = El aeropuerto origen y destino es el mismo
+acme.validation.legs.departure.message = Un tramo tiene una fecha de llegada posterior a la salida de este tramo
+acme.validation.legs.departureAirportmessage = El aeropuerto, origen/destino no coincide con el anterior/siguiente tramo
+
+
+

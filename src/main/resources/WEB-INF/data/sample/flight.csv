@@ -1,0 +1,33 @@
+key,draftMode,highlights,selfTransfer,cost,description,key:manager
+#base entity
+flight-00,true,Lorem ipsum dolor sit ame,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+# highlights
+flight-01,true,L,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-02,true,Lo,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-03,true,"Lorem ipsum dolor sit amet, consectetur adipiscin",true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-04,true,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-05,true,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-06,true,โลเร็ม อิปซัม,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-07,true,لوريم إيبسوم,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-08,true,洛伦·伊普森,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-09,true,<marquee>Hacked</marquee>,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-10,true,<script>alert(‘Hacked!’);</script>,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-11,true,' or 'A' = 'A,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+#selfTransfer
+flight-12,true,L,false,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+#cost
+flight-13,true,L,false,EUR 0.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-14,true,L,false,EUR 0.01,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-15,true,L,false,EUR 1000000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+#description
+flight-16,true,L,true,EUR 4.00,L,manager-01
+flight-17,true,L,true,EUR 4.00,Lo,manager-01
+flight-18,true,L,true,EUR 4.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",manager-01
+flight-19,true,L,true,EUR 4.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",manager-01
+flight-20,true,L,true,EUR 4.00,โลเร็ม อิปซัม,manager-01
+flight-21,true,L,true,EUR 4.00,لوريم إيبسوم,manager-01
+flight-22,true,L,true,EUR 4.00,洛伦·伊普森,manager-01
+flight-23,true,L,true,EUR 4.00,' or 'A' = 'A,manager-01
+flight-24,true,L,true,EUR 4.00,<marquee>Hacked</marquee>,manager-01
+flight-25,false,L,true,EUR 4.00,<script>alert(‘Hacked!’);</script>,manager-01
+
