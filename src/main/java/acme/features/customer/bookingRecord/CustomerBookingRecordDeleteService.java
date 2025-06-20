@@ -17,7 +17,7 @@ import acme.features.customer.passenger.CustomerPassengerRepository;
 import acme.realms.Customer;
 
 @GuiService
-public class CustomerBookingRecordCreateService extends AbstractGuiService<Customer, BookingRecord> {
+public class CustomerBookingRecordDeleteService extends AbstractGuiService<Customer, BookingRecord> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -65,7 +65,6 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 
 	@Override
 	public void load() {
-
 		int id = super.getRequest().getData("bookingId", int.class);
 		Booking booking = this.bookingRepository.findBookingById(id);
 		BookingRecord bookingRecord = new BookingRecord();
@@ -92,17 +91,12 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 			super.state(false, "passenger", "acme.validation.confirmation.message.booking-record.create.passenger");
 		else if (bookingRecord.getBooking() == null)
 			super.state(false, "booking", "acme.validation.confirmation.message.booking-record.create.booking");
-		else {
-			BookingRecord br = this.repository.findBookingRecordBybookingIdpassengerId(bookingRecord.getBooking().getId(), bookingRecord.getPassenger().getId());
-			if (br != null)
-				super.state(false, "*", "acme.validation.confirmation.message.booking-record.create");
-		}
-
 	}
 
 	@Override
 	public void perform(final BookingRecord bookingRecord) {
-		this.repository.save(bookingRecord);
+		BookingRecord br = this.repository.findBookingRecordBybookingIdpassengerId(bookingRecord.getBooking().getId(), bookingRecord.getPassenger().getId());
+		this.repository.delete(br);
 	}
 
 	@Override
@@ -112,8 +106,7 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 
 		int id = super.getRequest().getData("bookingId", int.class);
 
-		int customerId = super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId();
-		Collection<Passenger> passengers = this.repository.findAllPassengersByCustomerId(customerId);
+		Collection<Passenger> passengers = this.repository.findAllPassengersByBookingId(id);
 		passengerChoices = SelectChoices.from(passengers, "fullName", bookingRecord.getPassenger());
 
 		dataset = super.unbindObject(bookingRecord);
