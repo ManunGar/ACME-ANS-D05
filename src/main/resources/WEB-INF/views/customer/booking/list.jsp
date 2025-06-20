@@ -10,4 +10,3 @@
 </acme:list>
 
 <acme:button code="authenticated.booking.form.button.create" action="/customer/booking/create"/>
-<acme:button code="authenticated.booking-record.form.button.create" action="/customer/booking-record/create"/>

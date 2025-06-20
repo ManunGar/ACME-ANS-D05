@@ -16,6 +16,7 @@
 				<acme:submit code="authenticated.booking.form.button.update" action="/customer/booking/update"/>
 				<acme:submit code="authenticated.booking.form.button.publish" action="/customer/booking/publish"/>
 				<acme:submit code="authenticated.booking.form.button.delete" action="/customer/booking/delete"/>
+				<acme:button code="authenticated.bookingRecord.form.create" action="/customer/booking-record/create?bookingId=${bookingId}"/>
 				
 			</jstl:when>
 			<jstl:when test="${_command == 'create'}">
@@ -24,8 +25,16 @@
 					
 	</jstl:choose>	
 	
+	<jstl:if test="${passengers.size() != 0 && (_command == 'update' || _command == 'show' || _command == 'publish') && draftMode == true}">
+			<acme:button code="authenticated.bookingRecord.form.delete" action="/customer/booking-record/delete?bookingId=${bookingId}"/>
+			
+	</jstl:if>
+	
 	<jstl:if test="${passengers.size() != 0 && (_command == 'update' || _command == 'show' || _command == 'publish')}">
 			<acme:button code="authenticated.booking.form.button.passenger" action="/customer/passenger/list?bookingId=${bookingId}"/>
+			
 	</jstl:if>
+	
+	
 		
 </acme:form>

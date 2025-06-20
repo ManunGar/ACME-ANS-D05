@@ -17,3 +17,8 @@ customer.booking-record.list.label.booking = Reserva
 acme.validation.confirmation.message.booking-record.create = Esa relacion ya está creada
 acme.validation.confirmation.message.booking-record.create.booking = La reserva no puede ser nula
 acme.validation.confirmation.message.booking-record.create.passenger = El pasajero no puede ser nulo
+
+authenticated.bookingRecord.form.create = Añadir pasajero
+authenticated.bookingRecord.form.delete = Eliminar pasajero
+authenticated.booking-record.form.button.create = Añadir pasajero
+authenticated.booking-record.form.button.delete = Eliminar pasajero
