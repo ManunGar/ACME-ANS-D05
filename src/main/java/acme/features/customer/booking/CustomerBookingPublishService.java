@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.helpers.MomentHelper;
+import acme.client.helpers.SpringHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.Bookings.Booking;
@@ -16,6 +17,8 @@ import acme.entities.Bookings.BookingRecord;
 import acme.entities.Bookings.TravelClass;
 import acme.entities.Flight.Flight;
 import acme.entities.Flight.FlightRepository;
+import acme.entities.Legs.LegRepository;
+import acme.entities.Passengers.Passenger;
 import acme.features.customer.bookingRecord.CustomerBookingRecordRepository;
 import acme.realms.Customer;
 
@@ -56,12 +59,14 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 				Date today = MomentHelper.getCurrentMoment();
 				Integer flightId = super.getRequest().getData("flight", int.class);
-				Collection<Flight> flights = this.repository.findAllPublishedFlightsWithFutureDeparture(today);
+				Collection<Flight> flights = this.repository.findAllPublishedFlights();
+				LegRepository legRepository = SpringHelper.getBean(LegRepository.class);
+				Collection<Flight> flightsInFuture = flights.stream().filter(f -> legRepository.findDepartureByFlightId(f.getId()).get(0).after(today)).toList();
 				Flight flight;
 
 				if (flightId != 0) {
 					flight = this.flightRepository.findFlightById(flightId);
-					isFlightInList = flights.contains(flight);
+					isFlightInList = flightsInFuture.contains(flight);
 				}
 
 			}
@@ -117,6 +122,13 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		if (br.isEmpty())
 			super.state(false, "passengers", "acme.validation.confirmation.message.passenger");
 
+		boolean passengerNotPublished = false;
+		Collection<Passenger> passengerPublished = this.repository.findPassengersByBooking(booking.getId());
+		for (Passenger p : passengerPublished)
+			if (p.isDraftMode() == true)
+				passengerNotPublished = true;
+		if (passengerNotPublished)
+			super.state(false, "passengers", "acme.validation.confirmation.message.passenger.notPublished");
 	}
 
 	@Override
@@ -132,7 +144,10 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		SelectChoices flightChoices;
 
 		Date today = MomentHelper.getCurrentMoment();
-		Collection<Flight> flights = this.repository.findAllPublishedFlightsWithFutureDeparture(today);
+		Collection<Flight> flights = this.repository.findAllPublishedFlights();
+		LegRepository legRepository = SpringHelper.getBean(LegRepository.class);
+		Collection<Flight> flightsInFuture = flights.stream().filter(f -> legRepository.findDepartureByFlightId(f.getId()).get(0).after(today)).toList();
+		flightChoices = SelectChoices.from(flightsInFuture, "Destination", booking.getFlight());
 		flightChoices = SelectChoices.from(flights, "Destination", booking.getFlight());
 		choices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		Collection<String> passengers = this.repository.findPassengersNameByBooking(booking.getId());

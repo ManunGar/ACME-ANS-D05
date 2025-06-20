@@ -2,7 +2,6 @@
 package acme.features.customer.booking;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -48,17 +47,7 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	@Query("select br from BookingRecord br where br.booking.id = :bookingId")
 	Collection<BookingRecord> findBookingRecordByBooking(@Param("bookingId") int bookingId);
 
-	@Query("""
-		select f
-		from Flight f
-		where f.draftMode = false
-		  and exists (
-		    select l
-		    from Legs l
-		    where l.flight.id = f.id
-		      and l.departure > :today
-		  )
-		""")
-	Collection<Flight> findAllPublishedFlightsWithFutureDeparture(@Param("today") Date today);
+	@Query("select f from Flight f where f.draftMode = false")
+	Collection<Flight> findAllPublishedFlights();
 
 }
