@@ -35,6 +35,9 @@ acme.validation.legs.dates.message = La fecha de llegada es anterior a la fecha 
 acme.validation.leg.airport.message = El aeropuerto origen y destino es el mismo
 acme.validation.legs.departure.message = Un tramo tiene una fecha de llegada posterior a la salida de este tramo
 acme.validation.legs.departureAirportmessage = El aeropuerto, origen/destino no coincide con el anterior/siguiente tramo
+acme.validation.legs.aircraft = Este avión esta siendo usado durante otro vuelo en la misma fecha
+acme.validation.legs.dates.arrival = La fecha de llegada no puede ser anterior a la actual
+acme.validation.legs.dates.departure = La fecha de salida no puede ser anterior a la actual
 
 
 

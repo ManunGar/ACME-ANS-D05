@@ -111,7 +111,7 @@ public class Flight extends AbstractEntity {
 	public Integer getLayovers() {
 		Integer result;
 		LegRepository repository = SpringHelper.getBean(LegRepository.class);
-		result = repository.numberOfLayours(this.getId());
+		result = repository.numberOfLayours(this.getId()) - 1;
 
 		return result;
 	}

@@ -2,6 +2,7 @@
 package acme.features.manager.legs;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,6 +109,9 @@ public class ManagerLegsPublishService extends AbstractGuiService<AirlineManager
 		if (leg.getAircraft() == null || leg.getDeparture() == null || leg.getArrival() == null || leg.getDepartureAirport() == null || leg.getArrivalAirport() == null)
 			super.state(false, "*", "acme.validation.NotNull.message");
 		else {
+			//Fechas no pueden estar en pasado
+			super.state(!leg.getArrival().before(new Date()), "arrival", "acme.validation.legs.dates.arrival");
+			super.state(!leg.getDeparture().before(new Date()), "departure", "acme.validation.legs.dates.departure");
 			// Fechas salida y llegada bien ordenada
 			boolean valid = leg.getArrival().before(leg.getDeparture());
 			super.state(!valid, "departure", "acme.validation.legs.dates.message");

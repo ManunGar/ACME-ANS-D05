@@ -33,6 +33,8 @@ acme.validation.leg.airport.message = Airport origin and destination are the sam
 acme.validation.legs.departure.message = The dates of this leg overlap with the dates of other legs.
 acme.validation.legs.departureAirportmessage = The airport, origin/destination does not coincide with the last leg
 acme.validation.legs.aircraft = This aircraft is used during another leg iteneration
+acme.validation.legs.dates.arrival = The arrival date cannot be earlier than the current date
+acme.validation.legs.dates.departure = The departure date cannot be earlier than the current date
 
 
 
