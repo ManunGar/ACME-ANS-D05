@@ -38,14 +38,15 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 
 		int customerId = super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId();
 		Collection<Passenger> passengers = this.repository.findAllPassengersByCustomerId(customerId);
-		int id = super.getRequest().getData("bookingId", int.class);
-		Booking booking = this.bookingRepository.findBookingById(id);
 
-		boolean status = booking.getCustomer().getUserAccount().getId() == customerId;
+		boolean status = true;
 		boolean isInPassengers = true;
 		boolean validLocatorCode = true;
 
 		try {
+			int id = super.getRequest().getData("bookingId", int.class);
+			Booking booking = this.bookingRepository.findBookingById(id);
+			status = booking.getCustomer().getUserAccount().getId() == customerId;
 
 			if (super.getRequest().hasData("id")) {
 				String locatorCode = super.getRequest().getData("locatorCode", String.class);
@@ -84,14 +85,8 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 	@Override
 	public void validate(final BookingRecord bookingRecord) {
 
-		if (bookingRecord.getBooking() == null && bookingRecord.getPassenger() == null) {
-			super.state(false, "booking", "acme.validation.confirmation.message.booking-record.create.booking");
+		if (bookingRecord.getPassenger() == null)
 			super.state(false, "passenger", "acme.validation.confirmation.message.booking-record.create.passenger");
-
-		} else if (bookingRecord.getPassenger() == null)
-			super.state(false, "passenger", "acme.validation.confirmation.message.booking-record.create.passenger");
-		else if (bookingRecord.getBooking() == null)
-			super.state(false, "booking", "acme.validation.confirmation.message.booking-record.create.booking");
 		else {
 			BookingRecord br = this.repository.findBookingRecordBybookingIdpassengerId(bookingRecord.getBooking().getId(), bookingRecord.getPassenger().getId());
 			if (br != null)
@@ -115,7 +110,6 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		int customerId = super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId();
 		Collection<Passenger> passengers = this.repository.findAllPassengersByCustomerId(customerId);
 		passengerChoices = SelectChoices.from(passengers, "fullName", bookingRecord.getPassenger());
-
 		dataset = super.unbindObject(bookingRecord);
 		dataset.put("passenger", passengerChoices.getSelected().getKey());
 		dataset.put("passengers", passengerChoices);

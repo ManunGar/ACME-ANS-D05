@@ -4,9 +4,7 @@ package acme.entities.Passengers;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.Index;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -26,9 +24,6 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(indexes = {
-	@Index(columnList = "draftMode, customer_id")
-})
 public class Passenger extends AbstractEntity {
 
 	//Serialisation version 
@@ -42,7 +37,7 @@ public class Passenger extends AbstractEntity {
 	@ManyToOne(optional = false)
 	private Customer			customer;
 
-	//Attributes
+	//Attributes  	
 
 	@Mandatory
 	@ValidLongText
