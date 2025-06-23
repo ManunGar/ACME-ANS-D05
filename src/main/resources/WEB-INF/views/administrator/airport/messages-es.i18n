@@ -17,8 +17,8 @@ administrator.airport.list.label.operationalscope = Tipo de alcance
 administrator.airport.list.label.city = Ciudad
 administrator.airport.list.label.country = País
 
-administrator.airport.list.label.website = Sitio web
-administrator.airport.list.label.email = Email
+administrator.airport.list.label.website = Sitio web (Opcional)
+administrator.airport.list.label.email = Email (Opcional)
 administrator.airport.list.label.contact-phone-number = Número de teléfono (Opcional)
 
 administrator.airport.list.button.create = Crear un nuevo aeropuerto
