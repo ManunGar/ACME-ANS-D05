@@ -16,8 +16,8 @@ administrator.airport.list.label.iata-code = IATAcode
 administrator.airport.list.label.operationalscope = Operational scope
 administrator.airport.list.label.city = City
 administrator.airport.list.label.country = Country
-administrator.airport.list.label.website = Website
-administrator.airport.list.label.email = Email
+administrator.airport.list.label.website = Website (Optional)
+administrator.airport.list.label.email = Email (Optional)
 administrator.airport.list.label.contact-phone-number = Phone number (Optional)
 
 administrator.airport.list.button.create = Create a new airport
