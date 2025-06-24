@@ -18,7 +18,7 @@ administrator.airport.list.label.city = City
 administrator.airport.list.label.country = Country
 administrator.airport.list.label.website = Website
 administrator.airport.list.label.email = Email
-administrator.airport.list.label.contact-phone-number = Phone number
+administrator.airport.list.label.contact-phone-number = Phone number (Optional)
 
 administrator.airport.list.button.create = Create a new airport
 administrator.airport.form.label.confirmation.create = Are you sure you want to create the above airport?

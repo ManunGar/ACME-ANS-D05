@@ -24,7 +24,7 @@ bg=green</panel_attributes>
       <x>238</x>
       <y>329</y>
       <w>448</w>
-      <h>133</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Airport
@@ -36,7 +36,8 @@ Airport
 + country: String {Mandatory, ValidShortText, Automapped}
 + website: String {Optional, ValidUrl, Automapped}
 + email: String {Optional, ValidEmail, Column(unique = true)}
-+ contactPhoneNumber: String {Optional, ValidPhoneNumber, Automapped}
++ contactPhoneNumber: String {Optional, ValidString(pattern = "^\\+?\\d{6,15}$", 
+							message = "{acme.validation.text.message.phone}"), Automapped}
 
 bg=green</panel_attributes>
     <additional_attributes/>
