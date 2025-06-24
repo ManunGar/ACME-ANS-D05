@@ -33,7 +33,7 @@ public class CustomerPassengerListMenuService extends AbstractGuiService<Custome
 	public void load() {
 		Collection<Passenger> passengers;
 
-		passengers = this.repository.findPassengerByCustomer(super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId());
+		passengers = this.repository.findPassengerByCustomer(super.getRequest().getPrincipal().getActiveRealm().getId());
 
 		super.getBuffer().addData(passengers);
 	}

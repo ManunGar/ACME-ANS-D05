@@ -47,13 +47,13 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		boolean travelClass = true;
 		boolean isIndDraftMode = false;
 		boolean isCustomer = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
-		int customerId = super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId();
+		int customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		try {
 			Booking booking;
 			id = super.getRequest().getData("id", int.class);
 			booking = this.repository.findBookingById(id);
-			status = booking.getCustomer().getUserAccount().getId() == customerId;
+			status = booking.getCustomer().getId() == customerId;
 			isIndDraftMode = booking.isDraftMode() == true;
 			if (booking.isDraftMode() != false && status && isCustomer) {
 

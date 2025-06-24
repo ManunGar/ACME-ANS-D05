@@ -37,7 +37,7 @@ public class CustomerBookingDeleteService extends AbstractGuiService<Customer, B
 	public void authorise() {
 		int id;
 		Booking booking = null;
-		int customerId = super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId();
+		int customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		boolean status = true;
 		boolean isCustomer = true;
 		try {
@@ -45,7 +45,7 @@ public class CustomerBookingDeleteService extends AbstractGuiService<Customer, B
 			id = super.getRequest().getData("id", int.class);
 			booking = this.repository.findBookingById(id);
 			isCustomer = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
-			status = booking.getCustomer().getUserAccount().getId() == customerId;
+			status = booking.getCustomer().getId() == customerId;
 		} catch (Throwable e) {
 			status = false;
 		}
