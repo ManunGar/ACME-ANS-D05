@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.Bookings.BookingRecord;
 import acme.entities.Passengers.Passenger;
+import acme.features.customer.bookingRecord.CustomerBookingRecordRepository;
 import acme.realms.Customer;
 
 @GuiService
@@ -14,7 +16,10 @@ public class CustomerPassengerDeleteService extends AbstractGuiService<Customer,
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CustomerPassengerRepository repository;
+	private CustomerBookingRecordRepository	bookingRecordrepository;
+
+	@Autowired
+	private CustomerPassengerRepository		repository;
 
 	// AbstractGuiService interfaced ------------------------------------------
 
@@ -60,6 +65,8 @@ public class CustomerPassengerDeleteService extends AbstractGuiService<Customer,
 
 	@Override
 	public void perform(final Passenger passenger) {
+		for (BookingRecord bk : this.bookingRecordrepository.findBookingRecordByPassengerId(passenger.getId()))
+			this.bookingRecordrepository.delete(bk);
 		this.repository.delete(passenger);
 	}
 
