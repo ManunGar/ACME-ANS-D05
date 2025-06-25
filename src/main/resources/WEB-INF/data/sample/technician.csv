@@ -3,7 +3,7 @@ key,key:userAccount,licenseNumber,phoneNumber,specialisation,passedAnnualHealthT
 technician-01,user-account-technician-01,AAA123456,+34667158963,hydraulics,true,14,FAA Repairman Certificate
 technician-02,user-account-technician-02,AAB123456,954289107,structures,true,25,Aircraft Maintenance Engineer
 #licenseNumber-variations
-technician-04,user-account-technician-04,BBB123456,+34667158963,hydraulics,true,14,FAA Repairman Certificate
+technician-03,user-account-technician-03,BBB123456,+34667158963,hydraulics,true,14,FAA Repairman Certificate
 technician-05,user-account-technician-05,HKF183269,+34667158963,hydraulics,true,14,FAA Repairman Certificate
 technician-06,user-account-technician-06,AB325914,+34667158963,hydraulics,true,14,FAA Repairman Certificate
 technician-07,user-account-technician-07,XL969098,+34667158963,hydraulics,true,14,FAA Repairman Certificate
