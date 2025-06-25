@@ -66,3 +66,7 @@ acme.validation.confirmation.message.booking.locator-code.pattern = El código d
 acme.validation.text.identifier.duplicated = Ya existe otro comprador con ese identificador
 
 acme.validation.assistanceAgent.spokenLanguages.message = El formato del campo idiomas es: Español, Ingles, Aleman...
+
+acme.validation.maintenance-record.next-inspection.message = La fecha de la siguiente inspección debe ser posterior a la finalización del matenimiento actual
+
+acme.validation.maintenance-record.future-next-inspection.message = La fecha de la siguiente inspección debe ser en el futuro

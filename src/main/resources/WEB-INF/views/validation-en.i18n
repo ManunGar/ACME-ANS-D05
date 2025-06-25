@@ -68,3 +68,7 @@ acme.validation.confirmation.message.passenger = The booking must have at least 
 acme.validation.confirmation.message.booking.locator-code.pattern = The locator code must match with the pattern
 
 acme.validation.text.identifier.duplicated = There is already another customer with that identifier
+
+acme.validation.maintenance-record.next-inspection.message = The next inspection must be set after the actual maintenance takes place
+
+acme.validation.maintenance-record.future-next-inspection.message = The next inspection must be set in the future

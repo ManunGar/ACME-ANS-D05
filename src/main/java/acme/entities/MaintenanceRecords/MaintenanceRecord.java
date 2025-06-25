@@ -19,6 +19,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidMaintenanceRecord;
 import acme.entities.Aircrafts.Aircraft;
 import acme.realms.Technician;
 import lombok.Getter;
@@ -27,6 +28,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidMaintenanceRecord
 @Table(indexes = {
 	@Index(columnList = "draftMode"),//
 	@Index(columnList = "status,technician_id"),//
