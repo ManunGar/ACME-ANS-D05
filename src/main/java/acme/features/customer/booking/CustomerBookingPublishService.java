@@ -113,11 +113,8 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 	@Override
 	public void validate(final Booking booking) {
-		if (booking.getLastNibble() == null || booking.getLastNibble().isBlank() || booking.getLastNibble().isEmpty()) {
-			String lastNibbleStored = this.repository.findBookingById(booking.getId()).getLastNibble();
-			if (lastNibbleStored == null || lastNibbleStored.isBlank() || lastNibbleStored.isEmpty())
-				super.state(false, "lastNibble", "acme.validation.confirmation.message.lastNibble");
-		}
+		if (booking.getLastNibble().isBlank())
+			super.state(false, "lastNibble", "acme.validation.confirmation.message.lastNibble");
 
 		Collection<BookingRecord> br = this.bookingRecordRepository.findBookingRecordByBookingId(booking.getId());
 		if (br.isEmpty())
