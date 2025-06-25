@@ -66,3 +66,7 @@ acme.validation.confirmation.message.booking.locator-code.pattern = El código d
 acme.validation.text.identifier.duplicated = Ya existe otro comprador con ese identificador
 
 acme.validation.assistanceAgent.spokenLanguages.message = El formato del campo idiomas es: Español, Ingles, Aleman...
+
+acme.validation.text.message.patternLastNibble = El patrón debe ser 4 números
+
+acme.validation.passport = El pasaporte no está bien formado

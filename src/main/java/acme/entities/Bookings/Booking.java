@@ -58,7 +58,7 @@ public class Booking extends AbstractEntity {
 	//Attributes
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z0-9]{6,8}$")
+	@ValidString(pattern = "^[A-Z0-9]{6,8}$", message = "{acme.validation.confirmation.message.booking.locator-code.pattern}")
 	@Column(unique = true)
 	private String				locatorCode;
 
@@ -77,7 +77,7 @@ public class Booking extends AbstractEntity {
 	private boolean				draftMode;
 
 	@Optional
-	@ValidString(pattern = "^\\d{4}$")
+	@ValidString(pattern = "^\\d{4}$", message = "{acme.validation.text.message.patternLastNibble}")
 	@Automapped
 	private String				lastNibble;
 

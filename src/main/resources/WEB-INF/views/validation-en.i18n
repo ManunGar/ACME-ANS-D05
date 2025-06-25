@@ -68,3 +68,7 @@ acme.validation.confirmation.message.passenger = The booking must have at least 
 acme.validation.confirmation.message.booking.locator-code.pattern = The locator code must match with the pattern
 
 acme.validation.text.identifier.duplicated = There is already another customer with that identifier
+
+acme.validation.text.message.patternLastNibble = The pattern must be 4 numbers 
+
+acme.validation.passport = not a well-formed passport
