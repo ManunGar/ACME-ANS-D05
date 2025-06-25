@@ -70,3 +70,8 @@ acme.validation.assistanceAgent.spokenLanguages.message = El formato del campo i
 acme.validation.maintenance-record.next-inspection.message = La fecha de la siguiente inspección debe ser posterior a la finalización del matenimiento actual
 
 acme.validation.maintenance-record.future-next-inspection.message = La fecha de la siguiente inspección debe ser en el futuro
+
+acme.validation.text.message.patternLastNibble = El patrón debe ser 4 números
+
+acme.validation.passport = El pasaporte no está bien formado
+

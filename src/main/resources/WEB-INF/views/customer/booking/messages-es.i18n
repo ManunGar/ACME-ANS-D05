@@ -31,3 +31,4 @@ acme.validation.confirmation.message.lastNibble = Los últimos digitos de la tar
 acme.validation.confirmation.message.update = Una reserva no puede ser actualizada si está publicada
 acme.validation.confirmation.message.booking.locator-code = Ya existe otra reserva con este código de localizador
 acme.validation.confirmation.message.passenger.notPublished = Todos los pasajeros deben estar publicados
+

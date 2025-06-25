@@ -72,3 +72,7 @@ acme.validation.text.identifier.duplicated = There is already another customer w
 acme.validation.maintenance-record.next-inspection.message = The next inspection must be set after the actual maintenance takes place
 
 acme.validation.maintenance-record.future-next-inspection.message = The next inspection must be set in the future
+
+acme.validation.text.message.patternLastNibble = The pattern must be 4 numbers 
+
+acme.validation.passport = not a well-formed passport
