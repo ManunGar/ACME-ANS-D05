@@ -25,7 +25,8 @@ customer.passenger.form.button.update = Update passenger
 customer.passenger.form.button.publish = Publish passenger
 customer.passenger.form.button.delete = Delete passenger
 
-acme.validation.passport = not a well-formed passport
+
+
 
 
 
