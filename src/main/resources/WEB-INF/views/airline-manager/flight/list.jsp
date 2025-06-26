@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="manager.flight.list.label.description" path="description" width="80%"/>
+	<acme:list-column code="manager.flight.list.label.highlights" path="highlights" width="80%"/>
 	<acme:list-column code="manager.flight.list.label.cost" path="cost" width="20%"/>
 </acme:list>
 

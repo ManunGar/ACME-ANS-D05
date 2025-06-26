@@ -16,8 +16,8 @@ flight-11,true,' or 'A' = 'A,true,EUR 500.00,"Lorem ipsum dolor sit amet, consec
 #selfTransfer
 flight-12,true,L,false,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
 #cost
-flight-13,true,L,false,EUR 0.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
-flight-14,true,L,false,EUR 0.01,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-13,true,L,false,EUR 1.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
+flight-14,true,L,false,EUR 1.01,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
 flight-15,true,L,false,EUR 1000000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01
 #description
 flight-16,true,L,true,EUR 4.00,L,manager-01
@@ -30,4 +30,3 @@ flight-22,true,L,true,EUR 4.00,洛伦·伊普森,manager-01
 flight-23,true,L,true,EUR 4.00,' or 'A' = 'A,manager-01
 flight-24,true,L,true,EUR 4.00,<marquee>Hacked</marquee>,manager-01
 flight-25,false,L,true,EUR 4.00,<script>alert(‘Hacked!’);</script>,manager-01
-
