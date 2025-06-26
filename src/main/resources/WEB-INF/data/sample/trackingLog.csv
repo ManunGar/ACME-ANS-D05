@@ -1,4 +1,4 @@
-key,lastUpdateMoment,step,resolutionPercentage,accepted,draftMode,resolution,createdMoment,key:claim
+key,lastUpdateMoment,step,resolutionPercentage,indicator,draftMode,resolution,createdMoment,key:claim
 # base entity
 trackingLog-00,2012/07/02 0:00,Lorem ipsum dolor sit ame,49.00,PENDING,false,"",2012/07/02 0:00,claim-00
 # lastUpdateMoment - standard variations

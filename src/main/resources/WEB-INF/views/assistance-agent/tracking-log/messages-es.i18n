@@ -14,16 +14,15 @@ assistance-agent.tracking-log.form.title = Detalles del tracking log
 assistanceAgent.TrackingLog.list.label.step = Step
 assistanceAgent.TrackingLog.list.label.resolutionPercentage = Porcentaje de resolucion
 assistanceAgent.TrackingLog.list.label.claim = Queja
-assistanceAgent.TrackingLog.list.label.accepted = Estado
+assistanceAgent.TrackingLog.list.label.indicator = Estado
 
 assistanceAgent.trackingLog.form.label.createdMoment = Fecha de creacion
 assistanceAgent.trackingLog.form.label.lastUpdateMoment = Ultima fecha de actualizacion
 assistanceAgent.trackingLog.form.label.step = Step
 assistanceAgent.trackingLog.form.label.resolutionPercentage = Porcentaje de resolucion
-assistanceAgent.trackingLog.form.label.accepted = Estado
+assistanceAgent.trackingLog.form.label.indicator = Estado
 assistanceAgent.trackingLog.form.label.resolution = Resolucion
 assistanceAgent.trackingLog.form.label.claim = Queja
-assistanceAgent.trackingLog.form.label.secondTrackingLog = Esta casilla indica que el trackingLog se está creando tras haber manifestado el cliente su insatisfacción.
 
 assistanceAgent.TrackingLog.button.create = Crear nueva tracking log
 assistanceAgent.trackingLog.form.button.update = Actualizar tracking log
@@ -32,7 +31,6 @@ assistanceAgent.trackingLog.form.button.delete = Eliminar tracking log
 assistanceAgent.trackingLog.form.button.create = Crear
 
 acme.validation.confirmation.message.trackingLog.claim = Selecciona una claim correcta
-acme.validation.confirmation.message.trackingLog.condition = Un cliente no puede expresar disconformidad con la trackingLog resuelta si esta no esta publicada
 acme.validation.confirmation.message.trackingLog.draftMode = Estas intentando publicar una trackingLog que ya esta publicada
 
 acme.validation.confirmation.message.lastNibble = Los últimos digitos de la tarjeta de crédito deberán ser rellenados si la reserva es publicada

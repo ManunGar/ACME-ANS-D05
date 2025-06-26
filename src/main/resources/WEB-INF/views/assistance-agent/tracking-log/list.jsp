@@ -7,8 +7,12 @@
 	<acme:list-column code="assistanceAgent.TrackingLog.list.label.step" path="step" width="25%"/>
 	<acme:list-column code="assistanceAgent.TrackingLog.list.label.resolutionPercentage" path="resolutionPercentage" width="25%"/>
 	<acme:list-column code="assistanceAgent.TrackingLog.list.label.claim" path="claim" width="25%"/>
-	<acme:list-column code="assistanceAgent.TrackingLog.list.label.accepted" path="accepted" width="25%"/>
+	<acme:list-column code="assistanceAgent.TrackingLog.list.label.indicator" path="indicator" width="25%"/>
 	<acme:list-payload path="payload"/>
 </acme:list>
 
-<acme:button code="assistanceAgent.TrackingLog.button.create" action="/assistance-agent/tracking-log/create?masterId=${masterId}"/>
+<jstl:choose>
+	<jstl:when test="${createVisible == true}">
+		<acme:button code="assistanceAgent.TrackingLog.button.create" action="/assistance-agent/tracking-log/create?masterId=${masterId}"/>
+	</jstl:when>
+</jstl:choose>

@@ -25,30 +25,35 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 
 	@Override
 	public void authorise() {
-		int claimId = super.getRequest().getData("id", int.class);
-		int agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		boolean status;
+		try {
+			int claimId = super.getRequest().getData("id", int.class);
+			int agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		boolean status = this.repository.isDraftClaimOwnedByAgent(claimId, agentId);
+			status = this.repository.isDraftClaimOwnedByAgent(claimId, agentId);
 
-		if (super.getRequest().hasData("leg", int.class)) {
-			int legId = super.getRequest().getData("leg", int.class);
+			if (super.getRequest().hasData("leg", int.class)) {
+				int legId = super.getRequest().getData("leg", int.class);
 
-			if (legId != 0) {
-				Legs leg = this.repository.findLegById(legId);
-				Collection<Legs> availableLegs = this.repository.findAvailableLegs(MomentHelper.getCurrentMoment());
-				status = status && availableLegs.contains(leg);
-			}
-		}
-
-		if (super.getRequest().hasData("claimType", String.class)) {
-			String claimType = super.getRequest().getData("claimType", String.class);
-
-			if (!"0".equals(claimType))
-				try {
-					ClaimTypes.valueOf(claimType);
-				} catch (IllegalArgumentException | NullPointerException e) {
-					status = false;
+				if (legId != 0) {
+					Legs leg = this.repository.findLegById(legId);
+					Collection<Legs> availableLegs = this.repository.findAvailableLegs(MomentHelper.getCurrentMoment());
+					status = status && availableLegs.contains(leg);
 				}
+			}
+
+			if (super.getRequest().hasData("claimType", String.class)) {
+				String claimType = super.getRequest().getData("claimType", String.class);
+
+				if (!"0".equals(claimType))
+					try {
+						ClaimTypes.valueOf(claimType);
+					} catch (IllegalArgumentException | NullPointerException e) {
+						status = false;
+					}
+			}
+		} catch (Throwable e) {
+			status = false;
 		}
 
 		super.getResponse().setAuthorised(status);
@@ -119,7 +124,7 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 
 		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "claimType");
 
-		dataset.put("accepted", claim.indicator());
+		dataset.put("indicator", claim.indicator());
 		dataset.put("leg", claim.getLeg());
 		dataset.put("legs", legsChoices);
 		dataset.put("claimTypes", typesChoices);

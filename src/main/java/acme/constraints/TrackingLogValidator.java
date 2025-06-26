@@ -80,23 +80,36 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 			}
 
+			//Validation of both trackingLogs with resolutionPercentage == 100. have the same indicator
+			{
+				if (trackingLog.getClaim() != null && trackingLog.getResolutionPercentage() == 100.) {
+					boolean sameIndicatorForTrackingLogs;
+
+					List<TrackingLog> completedTrackingLogs = this.trackingLogRepository.findTrackingLogsOfClaimResolved(trackingLog.getClaim().getId(), trackingLog.getId()).stream().toList();
+					sameIndicatorForTrackingLogs = completedTrackingLogs.size() < 1 || completedTrackingLogs.get(0).getIndicator().equals(trackingLog.getIndicator());
+
+					super.state(context, sameIndicatorForTrackingLogs, "indicator", "acme.validation.trackingLog.completedTrackingLogsWithSameIndicator.message");
+				}
+			}
+
 			//Validation claim of this trackingLog is published
 			{
 				if (trackingLog.getClaim() != null) {
 					boolean claimIsPublished;
 
-					claimIsPublished = trackingLog.isDraftMode() || !trackingLog.getClaim().isDraftMode();
+					claimIsPublished = !trackingLog.getClaim().isDraftMode();
 
 					super.state(context, claimIsPublished, "*", "acme.validation.trackingLog.draftModeLogical.message");
 				}
 
 			}
 
-			//Validation of attribute resolutionPercentage is always higher than the last created and lower than the next created
+			//Validation of attribute resolutionPercentage is always higher than the last created and the last trackingLog is published
 			{
 				if (trackingLog.getClaim() != null) {
 
 					boolean resolutionPercentageHigher;
+					boolean lastTrackingLogPublished;
 
 					TrackingLog existingTrackingLog = this.trackingLogRepository.findTrackingLogById(trackingLog.getId());
 
@@ -105,24 +118,33 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 					if (existingTrackingLog == null) { // Create
 						TrackingLog lastTrackingLog = listTrackingLogs.size() > 0 ? listTrackingLogs.get(0) : null;
-						if (trackingLog.getResolutionPercentage() == 100.)
-							resolutionPercentageHigher = lastTrackingLog == null || lastTrackingLog.getResolutionPercentage() <= trackingLog.getResolutionPercentage() && !lastTrackingLog.isDraftMode();
-						else
-							resolutionPercentageHigher = lastTrackingLog == null || lastTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage() && !lastTrackingLog.isDraftMode();
+						if (trackingLog.getResolutionPercentage() == 100.) {
+							resolutionPercentageHigher = lastTrackingLog == null || lastTrackingLog.getResolutionPercentage() <= trackingLog.getResolutionPercentage();
+							lastTrackingLogPublished = lastTrackingLog == null || !lastTrackingLog.isDraftMode();
+						}
+
+						else {
+							resolutionPercentageHigher = lastTrackingLog == null || lastTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage();
+							lastTrackingLogPublished = lastTrackingLog == null || !lastTrackingLog.isDraftMode();
+						}
 
 					} else { // Update
 						int indexOfCurrentTrackingLog = listTrackingLogs.indexOf(trackingLog);
 
 						TrackingLog previousTrackingLog = indexOfCurrentTrackingLog + 1 < listTrackingLogs.size() ? listTrackingLogs.get(indexOfCurrentTrackingLog + 1) : null;
 
-						if (trackingLog.getResolutionPercentage() == 100.)
-							resolutionPercentageHigher = previousTrackingLog == null || previousTrackingLog.getResolutionPercentage() <= trackingLog.getResolutionPercentage() && !previousTrackingLog.isDraftMode();
-						else
-							resolutionPercentageHigher = previousTrackingLog == null || previousTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage() && !previousTrackingLog.isDraftMode();
+						if (trackingLog.getResolutionPercentage() == 100.) {
+							resolutionPercentageHigher = previousTrackingLog == null || previousTrackingLog.getResolutionPercentage() <= trackingLog.getResolutionPercentage();
+							lastTrackingLogPublished = previousTrackingLog == null || !previousTrackingLog.isDraftMode();
+						} else {
+							resolutionPercentageHigher = previousTrackingLog == null || previousTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage();
+							lastTrackingLogPublished = previousTrackingLog == null || !previousTrackingLog.isDraftMode();
+						}
 
 					}
 
 					super.state(context, resolutionPercentageHigher, "resolutionPercentage", "acme.validation.trackingLog.resolutionPercentage.message");
+					super.state(context, lastTrackingLogPublished, "claim", "acme.validation.trackingLog.lastTrackingLogPublished.message");
 				}
 			}
 

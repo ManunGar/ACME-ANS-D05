@@ -10,7 +10,7 @@
 	<acme:input-email code="assistanceAgent.Claim.form.label.passengerEmail" path="passengerEmail"/>	
 	<acme:input-textarea code="assistanceAgent.Claim.form.label.description" path="description"/>
 	<acme:input-select code="assistanceAgent.Claim.form.label.claimTypes" path="claimType" choices="${claimTypes}"/>
-	<acme:input-textbox code="assistanceAgent.Claim.form.label.accepted" path="accepted" readonly="true"/>
+	<acme:input-textbox code="assistanceAgent.Claim.form.label.indicator" path="indicator" readonly="true"/>
 	<jstl:if test="${undergoing == true || undergoing == null}">
 		<acme:input-select code="assistanceAgent.Claim.form.label.leg" path="leg" choices="${legs}"/>
 		<jstl:if test="${_command != 'create' }">
@@ -20,7 +20,7 @@
 		</jstl:if>
 	</jstl:if>
 	
-	<jstl:if test="${_command != 'create' }">
+	<jstl:if test="${_command != 'create' && draftMode == false}">
 		<acme:button code="assistanceAgent.Claim.form.button.trackingLogs" action="/assistance-agent/tracking-log/listclaim?masterId=${id}"/>
 	</jstl:if>
 	<jstl:choose>	 

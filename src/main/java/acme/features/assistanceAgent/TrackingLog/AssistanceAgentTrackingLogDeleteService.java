@@ -23,9 +23,14 @@ public class AssistanceAgentTrackingLogDeleteService extends AbstractGuiService<
 
 	@Override
 	public void authorise() {
-		int trackingLogId = super.getRequest().getData("id", int.class);
-		int agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean status = this.repository.isDraftTrackingLogOwnedByAgent(trackingLogId, agentId);
+		boolean status;
+		try {
+			int trackingLogId = super.getRequest().getData("id", int.class);
+			int agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			status = this.repository.isDraftTrackingLogOwnedByAgent(trackingLogId, agentId);
+		} catch (Throwable e) {
+			status = false;
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -79,13 +84,12 @@ public class AssistanceAgentTrackingLogDeleteService extends AbstractGuiService<
 
 		claimDraftMode = trackingLog.getClaim().isDraftMode();
 
-		dataset = super.unbindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "indicator", "draftMode", "resolution", "createdMoment", "secondTrackingLog");
+		dataset = super.unbindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "indicator", "draftMode", "resolution", "createdMoment");
 		dataset.put("claim", trackingLog.getClaim().getDescription());
 		dataset.put("status", statusChoices);
 		dataset.put("claims", claimChoices);
 		dataset.put("readOnlyClaim", true);
 		dataset.put("claimDraftMode", claimDraftMode);
-		dataset.put("secondTrackingLogReadOnly", true);
 
 		super.getResponse().addData(dataset);
 
