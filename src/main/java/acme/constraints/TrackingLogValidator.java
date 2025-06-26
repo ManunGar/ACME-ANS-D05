@@ -80,14 +80,14 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 			}
 
-			//Validation of attribute draftMode is logical with its claim
+			//Validation claim of this trackingLog is published
 			{
 				if (trackingLog.getClaim() != null) {
-					boolean draftModeLogical;
+					boolean claimIsPublished;
 
-					draftModeLogical = trackingLog.isDraftMode() || !trackingLog.getClaim().isDraftMode();
+					claimIsPublished = trackingLog.isDraftMode() || !trackingLog.getClaim().isDraftMode();
 
-					super.state(context, draftModeLogical, "draftMode", "acme.validation.trackingLog.draftModeLogical.message");
+					super.state(context, claimIsPublished, "*", "acme.validation.trackingLog.draftModeLogical.message");
 				}
 
 			}
@@ -105,53 +105,24 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 					if (existingTrackingLog == null) { // Create
 						TrackingLog lastTrackingLog = listTrackingLogs.size() > 0 ? listTrackingLogs.get(0) : null;
-						resolutionPercentageHigher = lastTrackingLog == null || lastTrackingLog.getResolutionPercentage() <= trackingLog.getResolutionPercentage();
+						if (trackingLog.getResolutionPercentage() == 100.)
+							resolutionPercentageHigher = lastTrackingLog == null || lastTrackingLog.getResolutionPercentage() <= trackingLog.getResolutionPercentage() && !lastTrackingLog.isDraftMode();
+						else
+							resolutionPercentageHigher = lastTrackingLog == null || lastTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage() && !lastTrackingLog.isDraftMode();
 
 					} else { // Update
 						int indexOfCurrentTrackingLog = listTrackingLogs.indexOf(trackingLog);
 
 						TrackingLog previousTrackingLog = indexOfCurrentTrackingLog + 1 < listTrackingLogs.size() ? listTrackingLogs.get(indexOfCurrentTrackingLog + 1) : null;
-						TrackingLog nextTrackingLog = indexOfCurrentTrackingLog - 1 >= 0 ? listTrackingLogs.get(indexOfCurrentTrackingLog - 1) : null;
 
-						boolean higherOrEqualThanPrevious = previousTrackingLog == null || previousTrackingLog.getResolutionPercentage() <= trackingLog.getResolutionPercentage();
-						boolean lowerOrEqualThanNext = nextTrackingLog == null || trackingLog.getResolutionPercentage() <= nextTrackingLog.getResolutionPercentage();
+						if (trackingLog.getResolutionPercentage() == 100.)
+							resolutionPercentageHigher = previousTrackingLog == null || previousTrackingLog.getResolutionPercentage() <= trackingLog.getResolutionPercentage() && !previousTrackingLog.isDraftMode();
+						else
+							resolutionPercentageHigher = previousTrackingLog == null || previousTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage() && !previousTrackingLog.isDraftMode();
 
-						resolutionPercentageHigher = higherOrEqualThanPrevious && lowerOrEqualThanNext;
 					}
 
 					super.state(context, resolutionPercentageHigher, "resolutionPercentage", "acme.validation.trackingLog.resolutionPercentage.message");
-				}
-			}
-
-			//Validation that if there are 2 trackingLogs with resolutionPercentage = 100.00, one of them has secondTrackingLog = true
-
-			{
-				if (trackingLog.getClaim() != null) {
-					List<Boolean> otherSecondStatuses = this.claimRepository.findOtherSecondTrackingStatus(trackingLog.getClaim().getId(), trackingLog.getId());
-
-					boolean attributeSecondTrackingLog = true;
-
-					if (trackingLog.getResolutionPercentage() == 100.00)
-						if (otherSecondStatuses.size() == 1) {
-							boolean other = otherSecondStatuses.get(0);
-							attributeSecondTrackingLog = other ^ trackingLog.isSecondTrackingLog();
-						} else
-							attributeSecondTrackingLog = !trackingLog.isSecondTrackingLog();
-
-					super.state(context, attributeSecondTrackingLog, "secondTrackingLog", "acme.validation.trackingLog.secondTrackingLog.numberOfTrackingLogs.message");
-
-				}
-
-			}
-
-			// Validation: secondTrackingLog can only be true if resolutionPercentage == 100.00
-			{
-				if (trackingLog.getClaim() != null) {
-					boolean secondTrackingLogValid;
-
-					secondTrackingLogValid = !trackingLog.isSecondTrackingLog() || trackingLog.getResolutionPercentage() == 100.00;
-
-					super.state(context, secondTrackingLogValid, "secondTrackingLog", "acme.validation.trackingLog.secondTrackingLog.resolutionPercentage.message");
 				}
 			}
 

@@ -48,7 +48,6 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 		trackingLog.setAccepted(AcceptedIndicator.PENDING);
 		trackingLog.setDraftMode(true);
 		trackingLog.setResolutionPercentage(0.);
-		trackingLog.setSecondTrackingLog(false);
 		trackingLog.setClaim(claim);
 
 		super.getBuffer().addData(trackingLog);
@@ -66,11 +65,7 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 
 	@Override
 	public void validate(final TrackingLog trackingLog) {
-		if (trackingLog.getResolutionPercentage() == 100.00 && trackingLog.isSecondTrackingLog()) {
-			int claimId = super.getRequest().getData("masterId", int.class);
-			boolean hasAnotherCompleted = this.repository.existsPublishedFullResolutionTrackingLog(claimId);
-			super.state(hasAnotherCompleted, "secondTrackingLog", "acme.validation.confirmation.message.trackingLog.condition");
-		}
+		;
 	}
 
 	@Override

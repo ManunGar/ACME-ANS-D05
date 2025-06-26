@@ -31,7 +31,7 @@ import lombok.Setter;
 @Setter
 @ValidTrackingLog
 @Table(indexes = {
-	@Index(columnList = "claim_id, draftMode"), @Index(columnList = "createdMoment"), @Index(columnList = "resolutionPercentage"), @Index(columnList = "secondTrackingLog")
+	@Index(columnList = "claim_id, draftMode"), @Index(columnList = "createdMoment"), @Index(columnList = "resolutionPercentage")
 })
 public class TrackingLog extends AbstractEntity {
 
@@ -65,10 +65,6 @@ public class TrackingLog extends AbstractEntity {
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				createdMoment;
-
-	@Mandatory
-	@Automapped
-	private boolean				secondTrackingLog;
 
 	@Optional
 	@ValidString
