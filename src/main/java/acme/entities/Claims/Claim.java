@@ -77,7 +77,7 @@ public class Claim extends AbstractEntity {
 
 
 	@Transient
-	public AcceptedIndicator accepted() {
+	public AcceptedIndicator indicator() {
 		ClaimRepository repository = SpringHelper.getBean(ClaimRepository.class);
 		List<AcceptedIndicator> indicators = repository.findAcceptedIndicatorsByClaimId(this.getId(), PageRequest.of(0, 1));
 		return indicators.isEmpty() ? AcceptedIndicator.PENDING : indicators.get(0);

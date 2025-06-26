@@ -14,16 +14,15 @@ assistance-agent.tracking-log.form.title = Details of tracking log
 assistanceAgent.TrackingLog.list.label.step = Step
 assistanceAgent.TrackingLog.list.label.resolutionPercentage = ResolutionPercentage
 assistanceAgent.TrackingLog.list.label.claim = Claim
-assistanceAgent.TrackingLog.list.label.accepted = Status
+assistanceAgent.TrackingLog.list.label.indicator = Status
 
 assistanceAgent.trackingLog.form.label.createdMoment = Created moment
 assistanceAgent.trackingLog.form.label.lastUpdateMoment = Last update moment
 assistanceAgent.trackingLog.form.label.step = Step
 assistanceAgent.trackingLog.form.label.resolutionPercentage = Percentage of resolution
-assistanceAgent.trackingLog.form.label.accepted = Status
+assistanceAgent.trackingLog.form.label.indicator = Status
 assistanceAgent.trackingLog.form.label.resolution = Resolution
 assistanceAgent.trackingLog.form.label.claim = Claim
-assistanceAgent.trackingLog.form.label.secondTrackingLog = This checkbox indicates whether this trackingLog is being created after the customer expresses dissatisfaction.
 
 assistanceAgent.TrackingLog.button.create = Create new tracking log
 assistanceAgent.trackingLog.form.button.update = Update tracking log
@@ -32,7 +31,6 @@ assistanceAgent.trackingLog.form.button.delete = Delete tracking log
 assistanceAgent.trackingLog.form.button.create = Create
 
 acme.validation.confirmation.message.trackingLog.claim = Select a correct claim
-acme.validation.confirmation.message.trackingLog.condition = A customer cannot express dissatisfaction if the trackingLog resolved is not published
 acme.validation.confirmation.message.trackingLog.draftMode = You are trying to public a Claim that is already published
 
 acme.validation.confirmation.message.lastNibble = The lastNibble must be filled if the booking is published

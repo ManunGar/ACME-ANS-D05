@@ -1,6 +1,9 @@
 
 package acme.features.assistanceAgent.TrackingLog;
 
+import java.util.Collection;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
@@ -23,15 +26,30 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 	@Override
 	public void authorise() {
 		boolean status = true;
-		if (super.getRequest().hasData("accepted", String.class)) {
-			String accepted = super.getRequest().getData("accepted", String.class);
+		try {
 
-			if (!"0".equals(accepted))
-				try {
-					AcceptedIndicator.valueOf(accepted);
-				} catch (IllegalArgumentException | NullPointerException e) {
-					status = false;
-				}
+			int claimId = super.getRequest().getData("masterId", int.class);
+			int agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			status = this.repository.isClaimOwnedByAgent(claimId, agentId) && !this.repository.findClaimById(claimId).isDraftMode();
+
+			List<TrackingLog> trackingLogsOrdered = this.repository.findTrackingLogsOrderedByCreatedMoment(claimId).stream().toList();
+			Collection<TrackingLog> trackingLogsCompleted = this.repository.findAllTrackingLogsByclaimIdWithResolutionPercentageCompleted(claimId);
+
+			if (trackingLogsOrdered.get(0).isDraftMode() || trackingLogsCompleted.size() >= 2)
+				status = false;
+
+			if (super.getRequest().hasData("indicator", String.class)) {
+				String accepted = super.getRequest().getData("indicator", String.class);
+
+				if (!"0".equals(accepted))
+					try {
+						AcceptedIndicator.valueOf(accepted);
+					} catch (IllegalArgumentException | NullPointerException e) {
+						status = false;
+					}
+			}
+		} catch (Throwable e) {
+			status = false;
 		}
 
 		super.getResponse().setAuthorised(status);
@@ -45,10 +63,9 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 		Claim claim = this.repository.findClaimById(claimId);
 
 		trackingLog = new TrackingLog();
-		trackingLog.setAccepted(AcceptedIndicator.PENDING);
+		trackingLog.setIndicator(AcceptedIndicator.PENDING);
 		trackingLog.setDraftMode(true);
 		trackingLog.setResolutionPercentage(0.);
-		trackingLog.setSecondTrackingLog(false);
 		trackingLog.setClaim(claim);
 
 		super.getBuffer().addData(trackingLog);
@@ -58,7 +75,7 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 	@Override
 	public void bind(final TrackingLog trackingLog) {
 
-		super.bindObject(trackingLog, "step", "resolutionPercentage", "resolution", "accepted", "secondTrackingLog");
+		super.bindObject(trackingLog, "step", "resolutionPercentage", "resolution", "indicator");
 		trackingLog.setLastUpdateMoment(MomentHelper.getCurrentMoment());
 		trackingLog.setCreatedMoment(MomentHelper.getCurrentMoment());
 
@@ -66,11 +83,7 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 
 	@Override
 	public void validate(final TrackingLog trackingLog) {
-		if (trackingLog.getResolutionPercentage() == 100.00 && trackingLog.isSecondTrackingLog()) {
-			int claimId = super.getRequest().getData("masterId", int.class);
-			boolean hasAnotherCompleted = this.repository.existsPublishedFullResolutionTrackingLog(claimId);
-			super.state(hasAnotherCompleted, "secondTrackingLog", "acme.validation.confirmation.message.trackingLog.condition");
-		}
+		;
 	}
 
 	@Override
@@ -86,12 +99,11 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 		SelectChoices statusChoices;
 		Dataset dataset;
 
-		statusChoices = SelectChoices.from(AcceptedIndicator.class, trackingLog.getAccepted());
+		statusChoices = SelectChoices.from(AcceptedIndicator.class, trackingLog.getIndicator());
 
-		dataset = super.unbindObject(trackingLog, "step", "resolutionPercentage", "accepted", "resolution", "createdMoment", "secondTrackingLog");
+		dataset = super.unbindObject(trackingLog, "step", "resolutionPercentage", "indicator", "resolution", "createdMoment");
 		dataset.put("claim", trackingLog.getClaim().getDescription());
 		dataset.put("status", statusChoices);
-		dataset.put("secondTrackingLogReadOnly", false);
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().addData(dataset);

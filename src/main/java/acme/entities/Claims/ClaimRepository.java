@@ -12,15 +12,6 @@ import acme.client.repositories.AbstractRepository;
 public interface ClaimRepository extends AbstractRepository {
 
 	@Query("""
-		    SELECT t.secondTrackingLog
-		    FROM TrackingLog t
-		    WHERE t.claim.id = :claimId
-		    AND t.resolutionPercentage = 100.0
-		    AND t.id <> :excludeId
-		""")
-	List<Boolean> findOtherSecondTrackingStatus(int claimId, int excludeId);
-
-	@Query("""
 		    SELECT COUNT(t)
 		    FROM TrackingLog t
 		    WHERE t.claim.id = :claimId
@@ -30,10 +21,10 @@ public interface ClaimRepository extends AbstractRepository {
 	int countOtherCompletedTrackingLogs(int claimId, int excludeId);
 
 	@Query("""
-		    SELECT t.accepted
+		    SELECT t.indicator
 		    FROM TrackingLog t
 		    WHERE t.claim.id = :claimId AND t.draftMode = false
-		    ORDER BY t.resolutionPercentage DESC, t.secondTrackingLog DESC, t.createdMoment DESC
+		    ORDER BY t.resolutionPercentage DESC, t.createdMoment DESC
 		""")
 	List<AcceptedIndicator> findAcceptedIndicatorsByClaimId(@Param("claimId") Integer claimId, Pageable pageable);
 

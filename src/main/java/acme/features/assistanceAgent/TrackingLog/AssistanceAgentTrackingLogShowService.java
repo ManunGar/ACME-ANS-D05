@@ -76,15 +76,14 @@ public class AssistanceAgentTrackingLogShowService extends AbstractGuiService<As
 		boolean claimDraftMode;
 		Dataset dataset;
 
-		statusChoices = SelectChoices.from(AcceptedIndicator.class, trackingLog.getAccepted());
+		statusChoices = SelectChoices.from(AcceptedIndicator.class, trackingLog.getIndicator());
 
 		claimDraftMode = trackingLog.getClaim().isDraftMode();
 
-		dataset = super.unbindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "accepted", "draftMode", "resolution", "createdMoment", "secondTrackingLog");
+		dataset = super.unbindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "indicator", "draftMode", "resolution", "createdMoment");
 		dataset.put("claim", trackingLog.getClaim().getDescription());
 		dataset.put("status", statusChoices);
 		dataset.put("claimDraftMode", claimDraftMode);
-		dataset.put("secondTrackingLogReadOnly", true);
 
 		super.getResponse().addData(dataset);
 

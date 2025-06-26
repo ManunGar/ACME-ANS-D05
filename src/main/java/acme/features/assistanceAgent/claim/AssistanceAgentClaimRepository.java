@@ -64,7 +64,7 @@ public interface AssistanceAgentClaimRepository extends AbstractRepository {
 				FROM TrackingLog t
 				WHERE t.claim.id = c.id
 				AND t.draftMode = false
-				AND t.accepted <> acme.entities.Claims.AcceptedIndicator.PENDING
+				AND t.indicator <> acme.entities.Claims.AcceptedIndicator.PENDING
 			)
 		""")
 	Collection<Claim> findNotResolvedClaimsByAssistanceAgentId(@Param("agentId") int agentId);
@@ -78,7 +78,7 @@ public interface AssistanceAgentClaimRepository extends AbstractRepository {
 				FROM TrackingLog t
 				WHERE t.claim.id = c.id
 				AND t.draftMode = false
-				AND t.accepted <> acme.entities.Claims.AcceptedIndicator.PENDING
+				AND t.indicator <> acme.entities.Claims.AcceptedIndicator.PENDING
 			)
 		""")
 	Collection<Claim> findResolvedClaimsByAssistanceAgentId(@Param("agentId") int agentId);

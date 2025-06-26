@@ -36,7 +36,7 @@ public class AssistanceAgentClaimListNotResolvedService extends AbstractGuiServi
 		Dataset dataset;
 
 		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "claimType");
-		dataset.put("accepted", claim.accepted());
+		dataset.put("indicator", claim.indicator());
 
 		super.getResponse().addData(dataset);
 	}

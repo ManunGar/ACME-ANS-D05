@@ -26,9 +26,14 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 
 	@Override
 	public void authorise() {
-		int claimId = super.getRequest().getData("id", int.class);
-		int agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean status = this.repository.isDraftClaimOwnedByAgent(claimId, agentId);
+		boolean status;
+		try {
+			int claimId = super.getRequest().getData("id", int.class);
+			int agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			status = this.repository.isDraftClaimOwnedByAgent(claimId, agentId);
+		} catch (Throwable e) {
+			status = false;
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -83,7 +88,7 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 		Dataset dataset;
 		boolean undergoing;
 
-		undergoing = claim.accepted().equals(AcceptedIndicator.PENDING);
+		undergoing = claim.indicator().equals(AcceptedIndicator.PENDING);
 
 		legs = this.repository.findAvailableLegs(MomentHelper.getCurrentMoment());
 		legsChoices = SelectChoices.from(legs, "flightNumber", claim.getLeg());
@@ -92,7 +97,7 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 
 		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "claimType");
 
-		dataset.put("accepted", claim.accepted());
+		dataset.put("indicator", claim.indicator());
 		dataset.put("leg", claim.getLeg());
 		dataset.put("legs", legsChoices);
 		dataset.put("claimTypes", typesChoices);

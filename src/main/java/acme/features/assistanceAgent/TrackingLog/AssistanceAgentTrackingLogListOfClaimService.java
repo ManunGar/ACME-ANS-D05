@@ -2,6 +2,7 @@
 package acme.features.assistanceAgent.TrackingLog;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -24,7 +25,7 @@ public class AssistanceAgentTrackingLogListOfClaimService extends AbstractGuiSer
 		try {
 			int claimId = super.getRequest().getData("masterId", int.class);
 			int agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
-			status = this.repository.isClaimOwnedByAgent(claimId, agentId);
+			status = this.repository.isClaimOwnedByAgent(claimId, agentId) && !this.repository.findClaimById(claimId).isDraftMode();
 		} catch (Throwable e) {
 			status = false;
 		}
@@ -47,7 +48,7 @@ public class AssistanceAgentTrackingLogListOfClaimService extends AbstractGuiSer
 	public void unbind(final TrackingLog trackingLog) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(trackingLog, "step", "resolutionPercentage", "accepted");
+		dataset = super.unbindObject(trackingLog, "step", "resolutionPercentage", "indicator");
 
 		dataset.put("claim", trackingLog.getClaim().getDescription());
 		super.getResponse().addData(dataset);
@@ -59,7 +60,14 @@ public class AssistanceAgentTrackingLogListOfClaimService extends AbstractGuiSer
 
 		claimId = super.getRequest().getData("masterId", int.class);
 
+		List<TrackingLog> trackingLogsOrdered = this.repository.findTrackingLogsOrderedByCreatedMoment(claimId).stream().toList();
+
+		Collection<TrackingLog> trackingLogsCompleted = this.repository.findAllTrackingLogsByclaimIdWithResolutionPercentageCompleted(claimId);
+
+		boolean createVisible = !trackingLogsOrdered.get(0).isDraftMode() && trackingLogsCompleted.size() < 2;
+
 		super.getResponse().addGlobal("masterId", claimId);
+		super.getResponse().addGlobal("createVisible", createVisible);
 
 	}
 

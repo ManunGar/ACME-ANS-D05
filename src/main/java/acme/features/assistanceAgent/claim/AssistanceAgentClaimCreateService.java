@@ -26,25 +26,29 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 	@Override
 	public void authorise() {
 		boolean status = true;
-		if (super.getRequest().hasData("leg", int.class)) {
-			int legId = super.getRequest().getData("leg", int.class);
+		try {
+			if (super.getRequest().hasData("leg", int.class)) {
+				int legId = super.getRequest().getData("leg", int.class);
 
-			Legs leg = this.repository.findLegById(legId);
-			if (legId != 0) {
-				Collection<Legs> availableLegs = this.repository.findAvailableLegs(MomentHelper.getCurrentMoment());
-				status = availableLegs.contains(leg);
-			}
-		}
-
-		if (super.getRequest().hasData("claimType", String.class)) {
-			String claimType = super.getRequest().getData("claimType", String.class);
-
-			if (!"0".equals(claimType))
-				try {
-					ClaimTypes.valueOf(claimType);
-				} catch (IllegalArgumentException | NullPointerException e) {
-					status = false;
+				Legs leg = this.repository.findLegById(legId);
+				if (legId != 0) {
+					Collection<Legs> availableLegs = this.repository.findAvailableLegs(MomentHelper.getCurrentMoment());
+					status = availableLegs.contains(leg);
 				}
+			}
+
+			if (super.getRequest().hasData("claimType", String.class)) {
+				String claimType = super.getRequest().getData("claimType", String.class);
+
+				if (!"0".equals(claimType))
+					try {
+						ClaimTypes.valueOf(claimType);
+					} catch (IllegalArgumentException | NullPointerException e) {
+						status = false;
+					}
+			}
+		} catch (Throwable e) {
+			status = false;
 		}
 
 		super.getResponse().setAuthorised(status);
@@ -110,7 +114,7 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 
 		dataset = super.unbindObject(claim, "passengerEmail", "description", "claimType");
 
-		dataset.put("accepted", claim.accepted());
+		dataset.put("indicator", claim.indicator());
 		dataset.put("leg", claim.getLeg());
 		dataset.put("legs", legsChoices);
 		dataset.put("claimTypes", typesChoices);

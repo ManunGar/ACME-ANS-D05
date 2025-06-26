@@ -14,7 +14,7 @@ assistance-agent.claim.form.title = Details of a claim
 assistanceAgent.claim.list.label.registrationMoment = Registration moment
 assistanceAgent.claim.list.label.passengerEmail = Passenger Email
 assistanceAgent.claim.list.label.claimTypes = Claim type
-assistanceAgent.claim.list.label.accepted = Status
+assistanceAgent.claim.list.label.indicator = Status
 
 assistanceAgent.claim.button.create = Create new Claim
 
@@ -22,7 +22,7 @@ assistanceAgent.Claim.form.label.registrationMoment = registrationMoment
 assistanceAgent.Claim.form.label.passengerEmail = passengerEmail
 assistanceAgent.Claim.form.label.description = Description
 assistanceAgent.Claim.form.label.claimTypes = Claim type
-assistanceAgent.Claim.form.label.accepted = Status
+assistanceAgent.Claim.form.label.indicator = Status
 assistanceAgent.Claim.form.label.leg = Leg which is associated to this claim
 assistanceAgent.Claim.form.leg.label.departure = leg's departure moment
 assistanceAgent.Claim.form.leg.label.arrival = leg's arrival moment

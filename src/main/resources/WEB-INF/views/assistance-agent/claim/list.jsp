@@ -7,7 +7,7 @@
 	<acme:list-column code="assistanceAgent.claim.list.label.registrationMoment" path="registrationMoment" width="25%"/>
 	<acme:list-column code="assistanceAgent.claim.list.label.passengerEmail" path="passengerEmail" width="25%"/>
 	<acme:list-column code="assistanceAgent.claim.list.label.claimTypes" path="claimType" width="25%"/>
-	<acme:list-column code="assistanceAgent.claim.list.label.accepted" path="accepted" width="25%"/>
+	<acme:list-column code="assistanceAgent.claim.list.label.indicator" path="indicator" width="25%"/>
 	<acme:list-payload path="payload"/>
 </acme:list>
 <jstl:if test="${_command != 'listResolved'}">

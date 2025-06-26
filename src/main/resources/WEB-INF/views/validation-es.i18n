@@ -31,13 +31,13 @@ acme.validation.trackingLog.acceptedPending.message = El atributo accepted debe 
 
 acme.validation.trackingLog.numberOfTrackingLogsCompleted.message = Una claim solo puede tener 2 trackingLogs con resolutionPercentage = 100.00
 
+acme.validation.trackingLog.completedTrackingLogsWithSameIndicator.message = Los 2 trackingLogs completados de una misma claim tienen que tener el mismo estado
+
 acme.validation.trackingLog.resolutionPercentage.message = El atributo resolutionPercentage no puede ser mas bajo
 
-acme.validation.trackingLog.draftModeLogical.message = El atributo draftMode de un trackingLog solo puede ser false si el atributo draftMode de su claim asociada es false tambien
+acme.validation.trackingLog.draftModeLogical.message = Una claim en modo borrador no puede tener trackingLogs
 
-acme.validation.trackingLog.secondTrackingLog.numberOfTrackingLogs.message = Solo cuando tienes 2 trackingLogs resueltas, alguna de estas 2 debería ser creada luego de que el cliente muestre una disatisfacción.
-
-acme.validation.trackingLog.secondTrackingLog.resolutionPercentage.message = Esta trackingLog no puede ser creada luego de la disatisfacción del cliente, ya que no tiene porcentaje de resolucion = 100.00.
+acme.validation.trackingLog.lastTrackingLogPublished.message = La ultima trackingLog de esta claim debe estar publicada
 
 acme.validation.legs.message = El trayecto no tiene un formato u orden correcto 
 

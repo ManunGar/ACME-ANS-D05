@@ -14,7 +14,7 @@ assistance-agent.claim.form.title = Detalles de una queja
 assistanceAgent.claim.list.label.registrationMoment = Momento de registro
 assistanceAgent.claim.list.label.passengerEmail = Correo Electronico del pasajero
 assistanceAgent.claim.list.label.claimTypes = Tipo de queja
-assistanceAgent.claim.list.label.accepted = Estado
+assistanceAgent.claim.list.label.indicator = Estado
 
 assistanceAgent.claim.button.create = Crear una queja
 
@@ -22,7 +22,7 @@ assistanceAgent.Claim.form.label.registrationMoment = Momento de registro
 assistanceAgent.Claim.form.label.passengerEmail = Correo Electronico del pasajero
 assistanceAgent.Claim.form.label.description = Descripcion de la queja
 assistanceAgent.Claim.form.label.claimTypes = Tipo de queja
-assistanceAgent.Claim.form.label.accepted = Estado
+assistanceAgent.Claim.form.label.indicator = Estado
 assistanceAgent.Claim.form.label.leg = Trayecto al que esta asociada la queja
 assistanceAgent.Claim.form.leg.label.departure = Fecha de salida del trayecto
 assistanceAgent.Claim.form.leg.label.arrival = Fecha de llegada del trayecto
