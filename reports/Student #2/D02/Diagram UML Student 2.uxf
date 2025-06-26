@@ -145,28 +145,19 @@ refers to &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>0</y>
-      <w>469</w>
-      <h>189</h>
+      <x>21</x>
+      <y>35</y>
+      <w>294</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 CustomerDashboard
 --
 + lastFiveDestinations: List&lt;String&gt;
-+ numberOfBookingsByTravelClass: Map&lt;String, Double&gt;	
-+ moneySpentInBookingsLastYear: Map&lt;String, Double&gt;
-+ countOfBookingsLastFiveYears: Integer
-+ averageCostOfBookingsLastFiveYears: Map&lt;String, Double&gt;
-+ minimumCostOfBookingsLastFiveYears: Map&lt;String, Double&gt;
-+ maximumCostOfBookingsLastFiveYears: Map&lt;String, Double&gt;
-+ standardDeviationCostOfBookingsLastFiveYears: Map&lt;String, Double&gt;
-+ countOfPassengersInBookings: Integer
-+ averagePassengersInBookings: Double
-+ minimumPassengersInBookings: Integer
-+ maximumPassengersInBookings: Integer
-+ standardDeviationPassengersInBookings: Double
-
++ moneySpentInBookingsLastYear: Money
++ numberOfBookingsByTravelClass:  Map&lt;TravelClass, Integer&gt;
++ bookingStatsLastFiveYears:  List&lt;Statictics&gt;
++ passengerStatsInBooking:  Statictics
 
 bg=CYAN</panel_attributes>
     <additional_attributes/>
@@ -287,6 +278,26 @@ ValidCustomer
 and must match regex="^[A-Z]{2,3}\\d{6}$", where
 the 2 or 3 letters are the Customer's initials
 bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>357</x>
+      <y>35</y>
+      <w>294</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+Statistic
+--
++ count: Integer
++ average: Double
++ max: Double
++ min: Double
++ standardDeviation: Double
+
+bg=CYAN</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
