@@ -1,12 +1,15 @@
 
 package acme.features.technicians.maintenanceRecord;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.Aircrafts.Aircraft;
@@ -67,7 +70,23 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
-		;
+		assert maintenanceRecord != null;
+
+		if (maintenanceRecord.isDraftMode() && maintenanceRecord.getMaintenanceMoment() != null && maintenanceRecord.getNextInspection() != null) {
+
+			Date minimumNextInspection = MomentHelper.deltaFromMoment(maintenanceRecord.getMaintenanceMoment(), 1, ChronoUnit.MINUTES);
+			boolean correctNextInspection = MomentHelper.isAfterOrEqual(maintenanceRecord.getNextInspection(), minimumNextInspection);
+
+			super.state(correctNextInspection, "nextInspection", "acme.validation.maintenance-record.next-inspection.message");
+		}
+
+		if (maintenanceRecord.isDraftMode() && maintenanceRecord.getNextInspection() != null) {
+
+			Date currentMoment = MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.MINUTES);
+			boolean futureNextInspection = MomentHelper.isAfterOrEqual(maintenanceRecord.getNextInspection(), currentMoment);
+
+			super.state(futureNextInspection, "nextInspection", "acme.validation.maintenance-record.future-next-inspection.message");
+		}
 	}
 
 	@Override
