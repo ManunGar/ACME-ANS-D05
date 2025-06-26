@@ -110,7 +110,7 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 		Dataset dataset;
 		boolean undergoing;
 
-		undergoing = claim.accepted().equals(AcceptedIndicator.PENDING);
+		undergoing = claim.indicator().equals(AcceptedIndicator.PENDING);
 
 		legs = this.repository.findAvailableLegs(MomentHelper.getCurrentMoment());
 		legsChoices = SelectChoices.from(legs, "flightNumber", claim.getLeg());
@@ -119,7 +119,7 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 
 		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "claimType");
 
-		dataset.put("accepted", claim.accepted());
+		dataset.put("accepted", claim.indicator());
 		dataset.put("leg", claim.getLeg());
 		dataset.put("legs", legsChoices);
 		dataset.put("claimTypes", typesChoices);

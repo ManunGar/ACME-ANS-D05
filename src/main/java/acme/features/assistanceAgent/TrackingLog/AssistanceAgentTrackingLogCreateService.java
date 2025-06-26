@@ -23,8 +23,8 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 	@Override
 	public void authorise() {
 		boolean status = true;
-		if (super.getRequest().hasData("accepted", String.class)) {
-			String accepted = super.getRequest().getData("accepted", String.class);
+		if (super.getRequest().hasData("indicator", String.class)) {
+			String accepted = super.getRequest().getData("indicator", String.class);
 
 			if (!"0".equals(accepted))
 				try {
@@ -45,7 +45,7 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 		Claim claim = this.repository.findClaimById(claimId);
 
 		trackingLog = new TrackingLog();
-		trackingLog.setAccepted(AcceptedIndicator.PENDING);
+		trackingLog.setIndicator(AcceptedIndicator.PENDING);
 		trackingLog.setDraftMode(true);
 		trackingLog.setResolutionPercentage(0.);
 		trackingLog.setClaim(claim);
@@ -57,7 +57,7 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 	@Override
 	public void bind(final TrackingLog trackingLog) {
 
-		super.bindObject(trackingLog, "step", "resolutionPercentage", "resolution", "accepted", "secondTrackingLog");
+		super.bindObject(trackingLog, "step", "resolutionPercentage", "resolution", "indicator", "secondTrackingLog");
 		trackingLog.setLastUpdateMoment(MomentHelper.getCurrentMoment());
 		trackingLog.setCreatedMoment(MomentHelper.getCurrentMoment());
 
@@ -81,9 +81,9 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 		SelectChoices statusChoices;
 		Dataset dataset;
 
-		statusChoices = SelectChoices.from(AcceptedIndicator.class, trackingLog.getAccepted());
+		statusChoices = SelectChoices.from(AcceptedIndicator.class, trackingLog.getIndicator());
 
-		dataset = super.unbindObject(trackingLog, "step", "resolutionPercentage", "accepted", "resolution", "createdMoment", "secondTrackingLog");
+		dataset = super.unbindObject(trackingLog, "step", "resolutionPercentage", "indicator", "resolution", "createdMoment", "secondTrackingLog");
 		dataset.put("claim", trackingLog.getClaim().getDescription());
 		dataset.put("status", statusChoices);
 		dataset.put("secondTrackingLogReadOnly", false);

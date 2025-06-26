@@ -26,8 +26,8 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 		int agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		boolean status = this.repository.isPublishableTrackingLogOwnedByAgent(trackingLogId, agentId);
 
-		if (super.getRequest().hasData("accepted", String.class)) {
-			String accepted = super.getRequest().getData("accepted", String.class);
+		if (super.getRequest().hasData("indicator", String.class)) {
+			String accepted = super.getRequest().getData("indicator", String.class);
 
 			if (!"0".equals(accepted))
 				try {
@@ -59,7 +59,7 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 	@Override
 	public void bind(final TrackingLog trackingLog) {
 
-		super.bindObject(trackingLog, "step", "resolutionPercentage", "accepted", "resolution");
+		super.bindObject(trackingLog, "step", "resolutionPercentage", "indicator", "resolution");
 
 	}
 
@@ -82,11 +82,11 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 		boolean claimDraftMode;
 		Dataset dataset;
 
-		statusChoices = SelectChoices.from(AcceptedIndicator.class, trackingLog.getAccepted());
+		statusChoices = SelectChoices.from(AcceptedIndicator.class, trackingLog.getIndicator());
 
 		claimDraftMode = trackingLog.getClaim().isDraftMode();
 
-		dataset = super.unbindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "accepted", "draftMode", "resolution", "createdMoment", "secondTrackingLog");
+		dataset = super.unbindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "indicator", "draftMode", "resolution", "createdMoment", "secondTrackingLog");
 		dataset.put("claim", trackingLog.getClaim().getDescription());
 		dataset.put("status", statusChoices);
 		dataset.put("claimDraftMode", claimDraftMode);

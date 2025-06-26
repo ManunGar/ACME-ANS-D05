@@ -57,14 +57,14 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 			//Validation for attribute accepted is logical with resolutionPercentage
 			{
-				if (trackingLog.getAccepted() != null) {
+				if (trackingLog.getIndicator() != null) {
 					boolean acceptedPending;
-					boolean isPending = trackingLog.getAccepted().equals(AcceptedIndicator.PENDING);
+					boolean isPending = trackingLog.getIndicator().equals(AcceptedIndicator.PENDING);
 					boolean isComplete = trackingLog.getResolutionPercentage() == 100.0;
 
 					acceptedPending = !isComplete && isPending || isComplete && !isPending;
 
-					super.state(context, acceptedPending, "accepted", "acme.validation.trackingLog.acceptedPending.message");
+					super.state(context, acceptedPending, "indicator", "acme.validation.trackingLog.acceptedPending.message");
 				}
 			}
 

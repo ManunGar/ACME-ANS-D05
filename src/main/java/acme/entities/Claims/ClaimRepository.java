@@ -21,7 +21,7 @@ public interface ClaimRepository extends AbstractRepository {
 	int countOtherCompletedTrackingLogs(int claimId, int excludeId);
 
 	@Query("""
-		    SELECT t.accepted
+		    SELECT t.indicator
 		    FROM TrackingLog t
 		    WHERE t.claim.id = :claimId AND t.draftMode = false
 		    ORDER BY t.resolutionPercentage DESC, t.createdMoment DESC

@@ -48,7 +48,7 @@ public class AssistanceAgentTrackingLogDeleteService extends AbstractGuiService<
 	@Override
 	public void bind(final TrackingLog trackingLog) {
 
-		super.bindObject(trackingLog, "step", "resolutionPercentage", "accepted", "resolution");
+		super.bindObject(trackingLog, "step", "resolutionPercentage", "indicator", "resolution");
 
 	}
 
@@ -75,11 +75,11 @@ public class AssistanceAgentTrackingLogDeleteService extends AbstractGuiService<
 		claimsOfThisAssistanceAgent = this.repository.findClaimsByAssistanceAgentId(assistanceAgentId);
 		claimChoices = SelectChoices.from(claimsOfThisAssistanceAgent, "description", trackingLog.getClaim());
 
-		statusChoices = SelectChoices.from(AcceptedIndicator.class, trackingLog.getAccepted());
+		statusChoices = SelectChoices.from(AcceptedIndicator.class, trackingLog.getIndicator());
 
 		claimDraftMode = trackingLog.getClaim().isDraftMode();
 
-		dataset = super.unbindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "accepted", "draftMode", "resolution", "createdMoment", "secondTrackingLog");
+		dataset = super.unbindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "indicator", "draftMode", "resolution", "createdMoment", "secondTrackingLog");
 		dataset.put("claim", trackingLog.getClaim().getDescription());
 		dataset.put("status", statusChoices);
 		dataset.put("claims", claimChoices);

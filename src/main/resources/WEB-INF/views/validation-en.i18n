@@ -35,9 +35,9 @@ acme.validation.trackingLog.acceptedPending.message = The attribute accepted mus
 
 acme.validation.trackingLog.numberOfTrackingLogsCompleted.message = A Claim can only have 2 TrackingLog associated with resolutionPercentage = 100.00
 
-acme.validation.trackingLog.resolutionPercentage.message = The resolutionPercentage cannot be lower
+acme.validation.trackingLog.resolutionPercentage.message = The resolutionPercentage cannot be lower and the last trackingLog must be published
 
-acme.validation.trackingLog.draftModeLogical.message = The attribute draftMode of a TrackingLog can only be false if its Claims attribute draftMode is false
+acme.validation.trackingLog.draftModeLogical.message = A claim in draftMode cannot have trackingLogs
 
 acme.validation.trackingLog.secondTrackingLog.numberOfTrackingLogs.message = Only when you have 2 trackingLogs resolved, one of them must be created after a dissatisfaction of the customer.
 

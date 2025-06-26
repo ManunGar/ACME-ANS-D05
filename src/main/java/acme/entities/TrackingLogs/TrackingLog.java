@@ -55,7 +55,7 @@ public class TrackingLog extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@Automapped
-	private AcceptedIndicator	accepted;	//Indicator
+	private AcceptedIndicator	indicator;	//Indicator
 
 	@Mandatory
 	@Automapped
