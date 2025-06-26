@@ -32,7 +32,7 @@ public class ManagerFlightCreateService extends AbstractGuiService<AirlineManage
 	public void load() {
 		Flight flight;
 		Money money = new Money();
-		money.setAmount(0.0);
+		money.setAmount(1.0);
 		money.setCurrency("EUR");
 		AirlineManager manager = (AirlineManager) super.getRequest().getPrincipal().getActiveRealm();
 
@@ -49,8 +49,13 @@ public class ManagerFlightCreateService extends AbstractGuiService<AirlineManage
 
 	@Override
 	public void bind(final Flight flight) {
-		System.out.println("bind: " + flight.getDraftMode());
 		super.bindObject(flight, "description", "highlights", "cost", "selfTransfer");
+	}
+
+	@Override
+	public void validate(final Flight flight) {
+		boolean confirmation = true;
+		super.state(confirmation, "*", "acme.validation.FlightDraftMode.message");
 	}
 
 	@Override
@@ -62,10 +67,8 @@ public class ManagerFlightCreateService extends AbstractGuiService<AirlineManage
 	@Override
 	public void unbind(final Flight flight) {
 		Dataset dataset;
-		System.out.println("unbind: " + flight);
 		dataset = super.unbindObject(flight, "description", "highlights", "cost", "selfTransfer", "draftMode");
 		dataset.put("manager", flight.getManager());
-		System.out.println("dataset: " + dataset);
 		super.getResponse().addData(dataset);
 	}
 

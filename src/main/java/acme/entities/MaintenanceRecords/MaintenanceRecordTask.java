@@ -17,9 +17,9 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(indexes = {
-	@Index(columnList = "maintenance_record_id"),                        // 
-	@Index(columnList = "task_id"),                                      // 
-	@Index(columnList = "task_id, maintenance_record_id")             // 
+	@Index(columnList = "maintenance_record_id"),// 
+	@Index(columnList = "task_id"),// 
+	@Index(columnList = "task_id, maintenance_record_id")// 
 
 })
 public class MaintenanceRecordTask extends AbstractEntity {
