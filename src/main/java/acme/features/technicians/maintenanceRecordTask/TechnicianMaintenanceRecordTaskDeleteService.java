@@ -83,7 +83,7 @@ public class TechnicianMaintenanceRecordTaskDeleteService extends AbstractGuiSer
 	public void validate(final MaintenanceRecordTask mrTask) {
 
 		Task task = super.getRequest().getData("task", Task.class);
-		super.state(task != null, "task", "technician.involves.form.error.no-task-to-unlink");
+		super.state(task != null, "task", "technician.maintenance-record-task.form.error.no-task-to-unlink");
 	}
 
 	@Override
