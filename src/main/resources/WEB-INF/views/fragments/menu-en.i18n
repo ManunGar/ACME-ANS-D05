@@ -72,6 +72,7 @@ master.menu.task.list-published-tasks = List published tasks
 # master.menu.maintenance-record ##########################################################
 
 master.menu.maintenance-record = Maintenance Records
+master.menu.maintenance-record.published = Published Maintenance Records
 master.menu.maintenance-record.list-my-maintenance-records= List my maintenance records
 master.menu.maintenance-record.list-published-maintenance-records = List published maintenance records
 
