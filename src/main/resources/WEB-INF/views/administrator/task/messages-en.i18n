@@ -1,0 +1,12 @@
+administrator.task.form.title = Task details
+administrator.task.list.title = Listing of tasks
+administrator.task.my-list.title = Listing of my tasks
+
+administrator.task.form.label.type = Type:
+administrator.task.form.label.description = Description:
+administrator.task.form.label.priority = Priority:
+administrator.task.form.label.estimatedDuration = Estimated duration (hours):
+
+administrator.task.list.label.type = Type
+administrator.task.list.label.description = Description
+administrator.task.list.label.priority = Priority
