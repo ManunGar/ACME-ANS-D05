@@ -42,10 +42,11 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		boolean status = true;
 		boolean isInPassengers = true;
 		boolean validLocatorCode = true;
+		Booking booking = null;
 
 		try {
 			int id = super.getRequest().getData("bookingId", int.class);
-			Booking booking = this.bookingRepository.findBookingById(id);
+			booking = this.bookingRepository.findBookingById(id);
 			status = booking.getCustomer().getId() == customerId;
 
 			if (super.getRequest().hasData("id")) {
@@ -61,7 +62,7 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		} catch (Throwable E) {
 			isInPassengers = false;
 		}
-		super.getResponse().setAuthorised(isCustomer && isInPassengers && status && validLocatorCode);
+		super.getResponse().setAuthorised(isCustomer && isInPassengers && status && validLocatorCode && booking.isDraftMode() != false);
 	}
 
 	@Override
@@ -85,9 +86,7 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 	@Override
 	public void validate(final BookingRecord bookingRecord) {
 
-		if (bookingRecord.getPassenger() == null)
-			super.state(false, "passenger", "acme.validation.confirmation.message.booking-record.create.passenger");
-		else {
+		if (bookingRecord.getPassenger() != null) {
 			BookingRecord br = this.repository.findBookingRecordBybookingIdpassengerId(bookingRecord.getBooking().getId(), bookingRecord.getPassenger().getId());
 			if (br != null)
 				super.state(false, "*", "acme.validation.confirmation.message.booking-record.create");
