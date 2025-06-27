@@ -85,6 +85,8 @@ master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.consumer-profile = Perfil de consumidor
 master.menu.user-account.become-assistance-agent = Hacerse agente de vuelo
 master.menu.user-account.assistance-agent-profile = Perfil de asistente de vuelo
+master.menu.user-account.become-assistance-agent = Hacerse tecnico
+master.menu.user-account.assistance-agent-profile = Perfil de tecnico
 
 # master.menu.flight-crew-member ##########################################################
 
