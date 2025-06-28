@@ -116,7 +116,7 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 					Collection<TrackingLog> trackingLogs = this.trackingLogRepository.findTrackingLogsOrderedByCreatedMoment(trackingLog.getClaim().getId());
 					List<TrackingLog> listTrackingLogs = trackingLogs.stream().toList();
 
-					if (existingTrackingLog == null) { // Create
+					if (existingTrackingLog == null) { //Create
 						TrackingLog lastTrackingLog = listTrackingLogs.size() > 0 ? listTrackingLogs.get(0) : null;
 						if (trackingLog.getResolutionPercentage() == 100.) {
 							resolutionPercentageHigher = lastTrackingLog == null || lastTrackingLog.getResolutionPercentage() <= trackingLog.getResolutionPercentage();
@@ -128,7 +128,7 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 							lastTrackingLogPublished = lastTrackingLog == null || !lastTrackingLog.isDraftMode();
 						}
 
-					} else { // Update
+					} else { //Update
 						int indexOfCurrentTrackingLog = listTrackingLogs.indexOf(trackingLog);
 
 						TrackingLog previousTrackingLog = indexOfCurrentTrackingLog + 1 < listTrackingLogs.size() ? listTrackingLogs.get(indexOfCurrentTrackingLog + 1) : null;
