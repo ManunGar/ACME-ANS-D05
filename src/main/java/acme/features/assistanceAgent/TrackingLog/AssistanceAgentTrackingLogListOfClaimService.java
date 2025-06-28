@@ -64,7 +64,11 @@ public class AssistanceAgentTrackingLogListOfClaimService extends AbstractGuiSer
 
 		Collection<TrackingLog> trackingLogsCompleted = this.repository.findAllTrackingLogsByclaimIdWithResolutionPercentageCompleted(claimId);
 
-		boolean createVisible = !trackingLogsOrdered.get(0).isDraftMode() && trackingLogsCompleted.size() < 2;
+		boolean createVisible;
+		if (trackingLogsOrdered.size() != 0)
+			createVisible = !trackingLogsOrdered.get(0).isDraftMode() && trackingLogsCompleted.size() < 2;
+		else
+			createVisible = true;
 
 		super.getResponse().addGlobal("masterId", claimId);
 		super.getResponse().addGlobal("createVisible", createVisible);
