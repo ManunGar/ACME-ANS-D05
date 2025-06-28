@@ -74,7 +74,7 @@ public class TrackingLog extends AbstractEntity {
 	/*
 	 * The `createdMoment` attribute is used to chronologically
 	 * sort the different trackingLogs in the database and
-	 * toperform all checks and validations, whereas
+	 * to perform all checks and validations, whereas
 	 * `lastUpdateMoment` is the attribute that informs the user
 	 * about the last time this trackingLog was modified.
 	 */
