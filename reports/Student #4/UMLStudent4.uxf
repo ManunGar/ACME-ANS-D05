@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
   <help_text/>
-  <zoom_level>7</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>175</x>
-      <y>63</y>
-      <w>462</w>
-      <h>133</h>
+      <x>216</x>
+      <y>54</y>
+      <w>396</w>
+      <h>114</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 AssistanceAgent
@@ -25,10 +25,10 @@ bg=pink</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>273</y>
-      <w>476</w>
-      <h>133</h>
+      <x>66</x>
+      <y>234</y>
+      <w>408</w>
+      <h>114</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Claim
@@ -40,17 +40,17 @@ Claim
 + draftMode: boolean {Mandatory, Automapped}
 
 --
-\+ accepted: AcceptedIndicator
+\+ indicator: AcceptedIndicator
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>483</y>
-      <w>476</w>
-      <h>154</h>
+      <x>66</x>
+      <y>414</y>
+      <w>408</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 TrackingLog
@@ -58,10 +58,9 @@ TrackingLog
 + lastUpdateMoment: Date {Mandatory, ValidMoment(past = true), Temporal(TemporalType.TIMESTAMP)}
 + step: String {Mandatory, ValidShortText, Automapped}
 + resolutionPercentage: double {Mandatory, ValidScore, Automapped}
-+ accepted: AcceptedIndicator {Mandatory, Valid, Automapped}
++ indicator: AcceptedIndicator {Mandatory, Valid, Automapped}
 + draftMode: boolean {Mandatory, Automapped}
 + createdMoment: Date {Mandatory, ValidMoment(past = true), Temporal(TemporalType.TIMESTAMP)}
-+ secondTrackingLog: boolean {Mandatory, Automapped}
 + resolution: String {Optional, ValidLongText, Automapped}
 --
 \+ validResolution: boolean
@@ -71,10 +70,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>609</x>
-      <y>273</y>
-      <w>98</w>
-      <h>35</h>
+      <x>588</x>
+      <y>234</y>
+      <w>84</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Airline
@@ -84,10 +83,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>693</x>
-      <y>70</y>
-      <w>147</w>
-      <h>91</h>
+      <x>660</x>
+      <y>60</y>
+      <w>126</w>
+      <h>78</h>
     </coordinates>
     <panel_attributes>&lt;&lt;ENUM&gt;&gt;
 ClaimTypes
@@ -102,10 +101,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>889</x>
-      <y>70</y>
-      <w>147</w>
-      <h>91</h>
+      <x>828</x>
+      <y>60</y>
+      <w>126</w>
+      <h>78</h>
     </coordinates>
     <panel_attributes>&lt;&lt;ENUM&gt;&gt;
 AcceptedIndicator
@@ -119,10 +118,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>455</x>
-      <y>189</y>
-      <w>168</w>
-      <h>98</h>
+      <x>456</x>
+      <y>162</y>
+      <w>144</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=x-&gt;
 m1=*
@@ -135,10 +134,10 @@ works for</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>231</x>
-      <y>399</y>
-      <w>49</w>
-      <h>98</h>
+      <x>264</x>
+      <y>342</y>
+      <w>42</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 m1=1
@@ -149,10 +148,10 @@ tracks</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>189</y>
-      <w>147</w>
-      <h>98</h>
+      <x>246</x>
+      <y>162</y>
+      <w>126</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=x-&gt;
 m1=*
@@ -165,10 +164,10 @@ registers</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>777</x>
-      <y>196</y>
-      <w>301</w>
-      <h>168</h>
+      <x>732</x>
+      <y>168</y>
+      <w>258</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 AssistanceAgentDashboard
@@ -190,41 +189,47 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>777</x>
-      <y>539</y>
-      <w>301</w>
-      <h>70</h>
+      <x>492</x>
+      <y>480</y>
+      <w>498</w>
+      <h>102</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Constraint&gt;&gt;
 ValidTrackingLog
 --
-+ resolution cannot be blank or null if resolutionPercentage == 100.
++ Resolution cannot be blank or null if resolutionPercentage == 100 and cannot have anything written if resolutionPercentage != 100.
++ If resolutionPercentage == 100 indicator must not be PENDING. If resolutionPercentage != 100 indicator must be PENDING.
++ The maximum number of trackingLogs with resolutionPercentage == 100 for a claim is 2.
++ If there are 2 trackingLogs with resolutionPercentage == 100 for a claim, both of them must have the same value for attribute indicator.
++ The claim associated to a trackingLog must be published.
++ The trackingLog must be always higher than the last created.
++ The trackingLog before this one must be published.
+
 bg=RED</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>777</x>
-      <y>455</y>
-      <w>301</w>
-      <h>70</h>
+      <x>492</x>
+      <y>408</y>
+      <w>498</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Constraint&gt;&gt;
 ValidClaim
 --
-+ accepted of claim and its trackingLog must be the same if 
-resolutionPercentage of the trackingLog is 100.
++ Leg associated to the Claim must be in the past
 bg=RED</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>609</x>
-      <y>329</y>
-      <w>98</w>
-      <h>35</h>
+      <x>588</x>
+      <y>282</y>
+      <w>84</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Legs
@@ -234,10 +239,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>469</x>
-      <y>329</y>
-      <w>154</w>
-      <h>42</h>
+      <x>468</x>
+      <y>282</y>
+      <w>132</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=x-&gt;
 m1=*
@@ -250,10 +255,10 @@ request or complain</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>777</x>
-      <y>623</y>
-      <w>308</w>
-      <h>63</h>
+      <x>492</x>
+      <y>594</y>
+      <w>498</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Constraint&gt;&gt;
 ValidIdentifier
@@ -266,10 +271,10 @@ bg=RED</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>777</x>
-      <y>378</y>
-      <w>308</w>
-      <h>63</h>
+      <x>492</x>
+      <y>342</y>
+      <w>498</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Constraint&gt;&gt;
 ValidAssistanceAgent
