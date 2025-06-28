@@ -35,8 +35,9 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 			List<TrackingLog> trackingLogsOrdered = this.repository.findTrackingLogsOrderedByCreatedMoment(claimId).stream().toList();
 			Collection<TrackingLog> trackingLogsCompleted = this.repository.findAllTrackingLogsByclaimIdWithResolutionPercentageCompleted(claimId);
 
-			if (trackingLogsOrdered.get(0).isDraftMode() || trackingLogsCompleted.size() >= 2)
-				status = false;
+			if (trackingLogsOrdered.size() != 0)
+				if (trackingLogsOrdered.get(0).isDraftMode() || trackingLogsCompleted.size() >= 2)
+					status = false;
 
 			if (super.getRequest().hasData("indicator", String.class)) {
 				String accepted = super.getRequest().getData("indicator", String.class);

@@ -9,7 +9,7 @@ import acme.client.repositories.AbstractRepository;
 
 public interface TrackingLogRepository extends AbstractRepository {
 
-	@Query("select tl from TrackingLog tl where tl.claim.id = :claimId order by tl.resolutionPercentage desc, tl.createdMoment desc")
+	@Query("select tl from TrackingLog tl where tl.claim.id = :claimId order by tl.resolutionPercentage desc, tl.createdMoment desc, tl.draftMode desc")
 	Collection<TrackingLog> findTrackingLogsOrderedByCreatedMoment(int claimId);
 
 	@Query("select tl from TrackingLog tl where tl.id = :trackingLogId")
