@@ -25,14 +25,10 @@ public class AuthenticatedCustomerUpdateService extends AbstractGuiService<Authe
 		boolean status;
 		int userAccountId;
 		Customer object;
-		try {
 
-			userAccountId = super.getRequest().getPrincipal().getAccountId();
-			object = this.repository.findCustomerByUserAccountId(userAccountId);
-			status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class) && super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId() == object.getUserAccount().getId();
-		} catch (Throwable E) {
-			status = false;
-		}
+		userAccountId = super.getRequest().getPrincipal().getAccountId();
+		object = this.repository.findCustomerByUserAccountId(userAccountId);
+		status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class) && super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId() == object.getUserAccount().getId();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -49,27 +45,21 @@ public class AuthenticatedCustomerUpdateService extends AbstractGuiService<Authe
 
 	@Override
 	public void bind(final Customer object) {
-		assert object != null;
-
 		super.bindObject(object, "identifier", "phoneNumber", "physicalAddress", "city", "country");
 	}
 
 	@Override
 	public void validate(final Customer object) {
-		assert object != null;
+		;
 	}
 
 	@Override
 	public void perform(final Customer object) {
-		assert object != null;
-
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Customer object) {
-		assert object != null;
-
 		Dataset dataset;
 
 		dataset = super.unbindObject(object, "identifier", "phoneNumber", "physicalAddress", "city", "country", "earnedPoints");

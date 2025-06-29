@@ -10,7 +10,6 @@ import acme.client.components.models.Dataset;
 import acme.client.components.principals.Administrator;
 import acme.client.components.views.SelectChoices;
 import acme.client.helpers.MomentHelper;
-import acme.client.helpers.SpringHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.Bookings.Booking;
@@ -24,7 +23,10 @@ public class AdministratorBookingShowService extends AbstractGuiService<Administ
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CustomerBookingRepository repository;
+	private CustomerBookingRepository	repository;
+
+	@Autowired
+	private LegRepository				legRepository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -66,8 +68,7 @@ public class AdministratorBookingShowService extends AbstractGuiService<Administ
 
 		Date today = MomentHelper.getCurrentMoment();
 		Collection<Flight> flights = this.repository.findAllPublishedFlights();
-		LegRepository legRepository = SpringHelper.getBean(LegRepository.class);
-		Collection<Flight> flightsInFuture = flights.stream().filter(f -> legRepository.findDepartureByFlightId(f.getId()).get(0).after(today)).toList();
+		Collection<Flight> flightsInFuture = flights.stream().filter(f -> this.legRepository.findDepartureByFlightId(f.getId()).get(0).after(today)).toList();
 		flightChoices = SelectChoices.from(flightsInFuture, "Destination", booking.getFlight());
 		choices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		Collection<String> passengers = this.repository.findPassengersNameByBooking(booking.getId());
