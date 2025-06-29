@@ -24,9 +24,7 @@ public class AuthenticatedCustomerCreateService extends AbstractGuiService<Authe
 	@Override
 	public void authorise() {
 		boolean status;
-
 		status = !super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
-
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -48,8 +46,6 @@ public class AuthenticatedCustomerCreateService extends AbstractGuiService<Authe
 
 	@Override
 	public void bind(final Customer object) {
-		assert object != null;
-
 		super.bindObject(object, "identifier", "phoneNumber", "physicalAddress", "city", "country");
 	}
 
@@ -60,7 +56,6 @@ public class AuthenticatedCustomerCreateService extends AbstractGuiService<Authe
 
 	@Override
 	public void perform(final Customer object) {
-		assert object != null;
 		this.repository.save(object);
 	}
 
