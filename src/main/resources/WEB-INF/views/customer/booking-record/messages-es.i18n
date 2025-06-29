@@ -8,8 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-customer.booking-record.list.title = Lista de registros de reserva
-customer.booking-record.form.title = Crear un registro de reserva
+customer.booking-record.form.title = Añada o elimine a un pasajero
 
 customer.booking-record.list.label.passenger = Pasajero
 customer.booking-record.list.label.booking = Reserva
