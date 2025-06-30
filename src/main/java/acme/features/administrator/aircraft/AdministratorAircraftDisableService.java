@@ -87,13 +87,6 @@ public class AdministratorAircraftDisableService extends AbstractGuiService<Admi
 		if (a.getStatus() == AircraftStatus.ACTIVE)
 			a.setStatus(AircraftStatus.MAINTENANCE);
 
-		a.setModel(aircraft.getModel());
-		a.setRegistrationNumber(aircraft.getRegistrationNumber());
-		a.setCapacity(aircraft.getCapacity());
-		a.setCargoWeight(aircraft.getCargoWeight());
-		a.setDetails(aircraft.getDetails());
-		a.setAirline(aircraft.getAirline());
-
 		this.repository.save(a);
 	}
 

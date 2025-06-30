@@ -65,7 +65,7 @@ public class Airport extends AbstractEntity {
 
 	@Optional
 	@ValidEmail
-	@Column(unique = true)
+	@Automapped
 	private String				email;
 
 	@Optional
