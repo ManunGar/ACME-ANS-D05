@@ -13,7 +13,6 @@ import acme.client.services.GuiService;
 import acme.entities.Aircrafts.Aircraft;
 import acme.entities.Aircrafts.AircraftStatus;
 import acme.entities.Airlines.Airline;
-import acme.entities.Airports.OperationalScope;
 
 @GuiService
 public class AdministratorAircraftCreateService extends AbstractGuiService<Administrator, Aircraft> {
@@ -72,7 +71,7 @@ public class AdministratorAircraftCreateService extends AbstractGuiService<Admin
 		airlineId = super.getRequest().getData("airline", int.class);
 		airline = this.repository.findAirlineById(airlineId);
 
-		super.bindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "details");
+		super.bindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "details", "status");
 		aircraft.setAirline(airline);
 	}
 
@@ -90,16 +89,7 @@ public class AdministratorAircraftCreateService extends AbstractGuiService<Admin
 
 	@Override
 	public void perform(final Aircraft aircraft) {
-
-		Aircraft a = this.repository.findAircraftById(aircraft.getId());
-		a.setModel(aircraft.getModel());
-		a.setRegistrationNumber(aircraft.getRegistrationNumber());
-		a.setCapacity(aircraft.getCapacity());
-		a.setCargoWeight(aircraft.getCargoWeight());
-		a.setStatus(aircraft.getStatus());
-		a.setDetails(aircraft.getDetails());
-		a.setAirline(aircraft.getAirline());
-		this.repository.save(a);
+		this.repository.save(aircraft);
 	}
 
 	@Override
