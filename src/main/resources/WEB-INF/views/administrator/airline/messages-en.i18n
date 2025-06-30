@@ -17,8 +17,8 @@ administrator.airline.list.label.iata-code = IATAcode
 administrator.airline.list.label.website = Website
 administrator.airline.list.label.type = Type
 administrator.airline.list.label.foundationMoment = FoundationMoment
-administrator.airline.list.label.emailAddress = Email Address (Optional)
-administrator.airline.list.label.phoneNumber = Phone number (Optional)
+administrator.airline.list.label.emailAddress = Email Address
+administrator.airline.list.label.phoneNumber = Phone number
 
 administrator.airline.list.button.create = create
 

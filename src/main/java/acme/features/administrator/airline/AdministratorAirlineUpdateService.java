@@ -58,10 +58,11 @@ public class AdministratorAirlineUpdateService extends AbstractGuiService<Admini
 		confirmation = super.getRequest().getData("confirmation", boolean.class);
 		super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
 
-		Airline a = this.repository.findAirlineByIataCode(airline.getIATAcode());
-		if (a != null && a.getId() != airline.getId())
-			super.state(false, "IATAcode", "acme.validation.airline.IATACode.message");
+		boolean iataCodeUnique;
+		String iataCode = airline.getIATAcode();
+		iataCodeUnique = this.repository.isIATACodeAvailable(iataCode);
 
+		super.state(iataCodeUnique, "IATAcode", "acme.validation.airline.IATACode.message");
 	}
 
 	@Override
@@ -78,6 +79,8 @@ public class AdministratorAirlineUpdateService extends AbstractGuiService<Admini
 
 		dataset = super.unbindObject(airline, "name", "IATAcode", "website", "type", "foundationMoment", "emailAddress", "phoneNumber");
 		dataset.put("types", choices);
+		dataset.put("confirmation", false);
+		dataset.put("readonly", false);
 
 		super.getResponse().addData(dataset);
 

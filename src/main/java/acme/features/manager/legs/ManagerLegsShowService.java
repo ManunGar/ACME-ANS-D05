@@ -72,7 +72,7 @@ public class ManagerLegsShowService extends AbstractGuiService<AirlineManager, L
 		Collection<Flight> flights = this.flightRepository.findAllFlight();
 		Collection<Airport> airports = this.airportRepository.findAllAirport();
 		Collection<Aircraft> aircrafts = this.aircraftRepository.findAllAircarftByAirlineId(leg.getFlight().getManager().getAirline().getId());
-		flightChoices = SelectChoices.from(flights, "highlights", leg.getFlight());
+		flightChoices = SelectChoices.from(flights, "description", leg.getFlight());
 		departureAirportChoices = SelectChoices.from(airports, "city", leg.getDepartureAirport());
 		arrivalAirportChoices = SelectChoices.from(airports, "city", leg.getArrivalAirport());
 		aircraftChoices = SelectChoices.from(aircrafts, "model", leg.getAircraft());

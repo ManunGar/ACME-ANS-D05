@@ -65,6 +65,10 @@ public class AdministratorAirportUpdateService extends AbstractGuiService<Admini
 		Airport a = this.repository.findAirportByIataCode(airport.getIATAcode());
 		if (a != null && a.getId() != airport.getId())
 			super.state(false, "IATAcode", "acme.validation.confirmation.message.aiport.IATAcode");
+
+		Airport a2 = this.repository.findAirportByEmail(airport.getEmail());
+		if (a2 != null && a2.getId() != airport.getId())
+			super.state(false, "email", "acme.validation.confirmation.message.aiport.email");
 	}
 
 	@Override
