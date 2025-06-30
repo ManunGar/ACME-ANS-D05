@@ -84,19 +84,8 @@ public class AdministratorAircraftEnableService extends AbstractGuiService<Admin
 
 		Aircraft a = this.repository.findAircraftById(aircraft.getId());
 
-		System.out.println("Current status: " + a.getStatus());
-
-		if (a.getStatus() == AircraftStatus.MAINTENANCE) {
+		if (a.getStatus() == AircraftStatus.MAINTENANCE)
 			a.setStatus(AircraftStatus.ACTIVE);
-			System.out.println("Status changed to: " + a.getStatus());
-		}
-
-		a.setModel(aircraft.getModel());
-		a.setRegistrationNumber(aircraft.getRegistrationNumber());
-		a.setCapacity(aircraft.getCapacity());
-		a.setCargoWeight(aircraft.getCargoWeight());
-		a.setDetails(aircraft.getDetails());
-		a.setAirline(aircraft.getAirline());
 
 		this.repository.save(a);
 	}
