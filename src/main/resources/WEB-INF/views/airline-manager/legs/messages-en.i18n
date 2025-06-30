@@ -28,6 +28,7 @@ manager.legs.form.button.update = Update
 manager.legs.form.button.publish = Publish
 manager.legs.form.button.delete = Delete
 
+acme.validation.legs.iata.message = Must match (IATA airline code) + 4 digits
 acme.validation.legs.dates.message = Arrival date is before at departure date
 acme.validation.leg.airport.message = Airport origin and destination are the same
 acme.validation.legs.departure.message = The dates of this leg overlap with the dates of other legs.
@@ -35,6 +36,6 @@ acme.validation.legs.departureAirportmessage = The airport, origin/destination d
 acme.validation.legs.aircraft = This aircraft is used during another leg iteneration
 acme.validation.legs.dates.arrival = The arrival date cannot be earlier than the current date
 acme.validation.legs.dates.departure = The departure date cannot be earlier than the current date
-
+acme.validation.legs.iata.repeat.message = The flight number is already in use
 
 

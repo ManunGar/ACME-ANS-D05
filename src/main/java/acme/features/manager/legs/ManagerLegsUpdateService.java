@@ -99,13 +99,16 @@ public class ManagerLegsUpdateService extends AbstractGuiService<AirlineManager,
 
 	@Override
 	public void validate(final Legs leg) {
-		boolean confirmation;
-		confirmation = super.getRequest().getData("confirmation", boolean.class);
-		super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
 		// No haya nada nulo
 		if (leg.getAircraft() == null || leg.getDeparture() == null || leg.getArrival() == null || leg.getDepartureAirport() == null || leg.getArrivalAirport() == null)
 			super.state(false, "*", "acme.validation.NotNull.message");
 		else {
+			// Comprobar IATACode
+			Flight flight = this.flightRepository.findFlightById(leg.getFlight().getId());
+			super.state(leg.getFlightNumber().substring(0, 3).equals(flight.getManager().getAirline().getIATAcode()), "flightNumber", "acme.validation.legs.iata.message");
+			Legs numberLeg = this.repository.findLegByFlightNumber(leg.getFlightNumber());
+			if (numberLeg != null)
+				super.state(leg.getId() == numberLeg.getId(), "flightNumber", "acme.validation.legs.iata.repeat.message");
 			//Fechas no pueden estar en pasado
 			super.state(!leg.getArrival().before(new Date()), "arrival", "acme.validation.legs.dates.arrival");
 			super.state(!leg.getDeparture().before(new Date()), "departure", "acme.validation.legs.dates.departure");
@@ -146,6 +149,7 @@ public class ManagerLegsUpdateService extends AbstractGuiService<AirlineManager,
 	public void perform(final Legs leg) {
 		Legs l = this.repository.findLegById(leg.getId());
 		l.setFlight(leg.getFlight());
+		l.setFlightNumber(leg.getFlightNumber());
 		l.setDeparture(leg.getDeparture());
 		l.setArrival(leg.getArrival());
 		l.setStatus(leg.getStatus());

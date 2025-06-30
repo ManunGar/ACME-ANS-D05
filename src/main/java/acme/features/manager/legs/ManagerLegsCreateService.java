@@ -4,7 +4,6 @@ package acme.features.manager.legs;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -95,13 +94,6 @@ public class ManagerLegsCreateService extends AbstractGuiService<AirlineManager,
 		List<Legs> legs = (List<Legs>) this.repository.findAllByFlightId(flightId);
 		legs = legs.size() > 0 ? LegsValidator.sortLegsByDeparture(legs) : legs;
 
-		Random random = new Random();
-
-		// Generar un string de 4 números aleatorios
-		StringBuilder randomString = new StringBuilder();
-		for (int i = 0; i < 4; i++)
-			randomString.append(random.nextInt(10)); // Genera un número aleatorio entre 0 y 9
-
 		leg = new Legs();
 		leg.setStatus(LegsStatus.ON_TYME);
 		leg.setDraftMode(true);
@@ -109,7 +101,7 @@ public class ManagerLegsCreateService extends AbstractGuiService<AirlineManager,
 		leg.setDepartureAirport(legs.size() > 0 ? legs.get(legs.size() - 1).getArrivalAirport() : null);
 		leg.setDeparture(legs.size() > 0 ? legs.get(legs.size() - 1).getArrival() : null);
 		String iataCode = flight.getManager().getAirline().getIATAcode();
-		leg.setFlightNumber(iataCode + randomString.toString());
+		leg.setFlightNumber(iataCode);
 
 		super.getBuffer().addData(leg);
 	}
@@ -126,6 +118,9 @@ public class ManagerLegsCreateService extends AbstractGuiService<AirlineManager,
 		if (leg.getAircraft() == null || leg.getDeparture() == null || leg.getArrival() == null || leg.getDepartureAirport() == null || leg.getArrivalAirport() == null)
 			super.state(false, "*", "acme.validation.NotNull.message");
 		else {
+			// Comprobar IATACode
+			Flight flight = this.flightRepository.findFlightById(leg.getFlight().getId());
+			super.state(leg.getFlightNumber().substring(0, 3).equals(flight.getManager().getAirline().getIATAcode()), "flightNumber", "acme.validation.legs.iata.message");
 			//Fechas no pueden estar en pasado
 			super.state(!leg.getArrival().before(new Date()), "arrival", "acme.validation.legs.dates.arrival");
 			super.state(!leg.getDeparture().before(new Date()), "departure", "acme.validation.legs.dates.departure");
@@ -162,7 +157,6 @@ public class ManagerLegsCreateService extends AbstractGuiService<AirlineManager,
 
 	@Override
 	public void perform(final Legs leg) {
-		System.out.println("bind: " + leg.getDraftMode());
 		this.repository.save(leg);
 	}
 

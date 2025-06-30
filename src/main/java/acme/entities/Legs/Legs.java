@@ -42,7 +42,7 @@ public class Legs extends AbstractEntity {
 	private Boolean				draftMode;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{3}\\d{4}$")
+	@ValidString(pattern = "^[A-Z]{3}\\d{4}$", message = "{acme.validation.legs.iata.message}")
 	@Column(unique = true)
 	private String				flightNumber;
 

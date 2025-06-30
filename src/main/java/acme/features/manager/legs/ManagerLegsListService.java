@@ -34,7 +34,7 @@ public class ManagerLegsListService extends AbstractGuiService<AirlineManager, L
 
 		id = super.getRequest().getData("flightId", int.class);
 		flight = this.flightRepository.findOne(id);
-		boolean status = flight.getManager().getUserAccount().getId() == managerId;
+		boolean status = flight != null && (!flight.getDraftMode() || flight.getManager().getUserAccount().getId() == managerId);
 		super.getResponse().setAuthorised(status);
 	}
 
