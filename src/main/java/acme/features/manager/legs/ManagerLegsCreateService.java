@@ -176,7 +176,7 @@ public class ManagerLegsCreateService extends AbstractGuiService<AirlineManager,
 		SelectChoices aircraftChoices;
 
 		Collection<Flight> flights = this.flightRepository.findAllFlight();
-		flightChoices = SelectChoices.from(flights, "description", leg.getFlight());
+		flightChoices = SelectChoices.from(flights, "highlights", leg.getFlight());
 		Collection<Airport> airports = this.airportRepository.findAllAirport();
 		Collection<Aircraft> aircrafts = this.aircraftRepository.findAllAircarftByAirlineId(leg.getFlight().getManager().getAirline().getId());
 		departureAirportChoices = SelectChoices.from(airports, "city", leg.getDepartureAirport());
