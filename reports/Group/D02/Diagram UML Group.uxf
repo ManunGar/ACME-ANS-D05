@@ -35,7 +35,7 @@ Airport
 + city: String {Mandatory, ValidShortText, Automapped}
 + country: String {Mandatory, ValidShortText, Automapped}
 + website: String {Optional, ValidUrl, Automapped}
-+ email: String {Optional, ValidEmail, Column(unique = true)}
++ email: String {Optional, ValidEmail, Automapped}
 + contactPhoneNumber: String {Optional, ValidString(pattern = "^\\+?\\d{6,15}$", 
 							message = "{acme.validation.text.message.phone}"), Automapped}
 
@@ -76,7 +76,8 @@ Airline
 + type: Type {Mandatory, Valid, Automapped}
 + foundationMoment: Date {Mandatory, ValidMoment(past = true), Temporal(TemporalType.TIMESTAMP)}
 + emailAddress: String {Optional, ValidEmail, Automapped}
-+ phoneNumber: String {Optional, ValidPhoneNumber, Automapped}
++ phoneNumber: String {Optional, ValidString(pattern = "^\\+?\\d{6,15}$",
+message = "{acme.validation.text.message.phone}"), Automapped}
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
@@ -199,8 +200,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>245</x>
-      <y>665</y>
+      <x>441</x>
+      <y>672</y>
       <w>133</w>
       <h>63</h>
     </coordinates>
@@ -215,8 +216,8 @@ bg=RED</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>441</x>
-      <y>665</y>
+      <x>644</x>
+      <y>672</y>
       <w>133</w>
       <h>63</h>
     </coordinates>
@@ -231,8 +232,8 @@ bg=RED</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>637</x>
-      <y>665</y>
+      <x>840</x>
+      <y>672</y>
       <w>133</w>
       <h>63</h>
     </coordinates>
@@ -241,22 +242,6 @@ ValidIATACode
 --
 + NotBlank
 + Regexp = "^[A-Z]{3}$"
-bg=RED</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>833</x>
-      <y>658</y>
-      <w>259</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
-ValidPhoneNumber
---
-+ NotBlank
-+ Regexp = "^\\+?\\d{6,15}$"
 bg=RED</panel_attributes>
     <additional_attributes/>
   </element>
