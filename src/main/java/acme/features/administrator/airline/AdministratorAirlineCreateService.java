@@ -11,7 +11,6 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.Airlines.Airline;
 import acme.entities.Airlines.Type;
-import acme.entities.Airports.OperationalScope;
 
 @GuiService
 public class AdministratorAirlineCreateService extends AbstractGuiService<Administrator, Airline> {
@@ -55,11 +54,9 @@ public class AdministratorAirlineCreateService extends AbstractGuiService<Admini
 		confirmation = super.getRequest().getData("confirmation", boolean.class);
 		super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
 
-		boolean iataCodeUnique;
-		String iataCode = airline.getIATAcode();
-		iataCodeUnique = this.repository.isIATACodeAvailable(iataCode);
-
-		super.state(iataCodeUnique, "IATAcode", "acme.validation.airline.IATACode.message");
+		Airline a = this.repository.findAirlineByIataCode(airline.getIATAcode());
+		if (a != null && a.getId() != airline.getId())
+			super.state(false, "IATAcode", "acme.validation.airline.IATACode.message");
 	}
 
 	@Override
