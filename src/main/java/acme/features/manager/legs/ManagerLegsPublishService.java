@@ -80,7 +80,7 @@ public class ManagerLegsPublishService extends AbstractGuiService<AirlineManager
 			}
 		}
 
-		super.getResponse().setAuthorised(autorhorise && isDeparture && isArrival && isAircraft);
+		super.getResponse().setAuthorised(draftMode && autorhorise && isDeparture && isArrival && isAircraft);
 	}
 
 	@Override
@@ -109,6 +109,9 @@ public class ManagerLegsPublishService extends AbstractGuiService<AirlineManager
 			// Comprobar IATACode
 			Flight flight = this.flightRepository.findFlightById(leg.getFlight().getId());
 			super.state(leg.getFlightNumber().substring(0, 3).equals(flight.getManager().getAirline().getIATAcode()), "flightNumber", "acme.validation.legs.iata.message");
+			Legs numberLeg = this.repository.findLegByFlightNumber(leg.getFlightNumber());
+			if (numberLeg != null)
+				super.state(leg.getId() == numberLeg.getId(), "flightNumber", "acme.validation.legs.iata.repeat.message");
 			//Fechas no pueden estar en pasado
 			super.state(!leg.getArrival().before(new Date()), "arrival", "acme.validation.legs.dates.arrival");
 			super.state(!leg.getDeparture().before(new Date()), "departure", "acme.validation.legs.dates.departure");
