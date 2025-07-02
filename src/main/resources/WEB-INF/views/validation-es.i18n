@@ -75,3 +75,5 @@ acme.validation.text.message.patternLastNibble = El patrón debe ser 4 números
 
 acme.validation.passport = El pasaporte no está bien formado
 
+acme.validation.legs.iata.message = Debería ser (código IATA de la aerolínea) + 4 dígitos
+

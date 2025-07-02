@@ -46,7 +46,7 @@ public class ManagerLegsShowService extends AbstractGuiService<AirlineManager, L
 
 		id = super.getRequest().getData("id", int.class);
 		leg = this.repository.findLegById(id);
-		boolean status = leg.getFlight().getManager().getUserAccount().getId() == managerId;
+		boolean status = leg != null && leg.getFlight().getManager().getUserAccount().getId() == managerId;
 		super.getResponse().setAuthorised(status);
 	}
 

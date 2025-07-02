@@ -52,9 +52,6 @@ public class ManagerFlightUpdateService extends AbstractGuiService<AirlineManage
 	public void validate(final Flight flight) {
 		boolean confirmation;
 
-		confirmation = super.getRequest().getData("confirmation", boolean.class);
-		super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
-
 		confirmation = flight.getDraftMode();
 		super.state(confirmation, "*", "acme.validation.draftMode.message");
 	}

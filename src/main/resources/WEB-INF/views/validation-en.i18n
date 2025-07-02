@@ -76,3 +76,5 @@ acme.validation.maintenance-record.future-next-inspection.message = The next ins
 acme.validation.text.message.patternLastNibble = The pattern must be 4 numbers 
 
 acme.validation.passport = not a well-formed passport
+
+acme.validation.legs.iata.message = Must match (IATA airline code) + 4 digits
