@@ -55,7 +55,7 @@ public class CustomerBookingRecordDeleteService extends AbstractGuiService<Custo
 				int passengerId = super.getRequest().getData("passenger", int.class);
 				if (passengerId != 0) {
 					Passenger passenger = this.passengerRepository.findPassengerById(passengerId);
-					isInPassengers = passengers.contains(passenger);
+					isInPassengers = passengers.contains(passenger) && this.repository.findBookingRecordBybookingIdpassengerId(booking.getId(), passenger.getId()) != null;
 				}
 
 			}
