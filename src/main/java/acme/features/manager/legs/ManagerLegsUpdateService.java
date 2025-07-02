@@ -51,32 +51,37 @@ public class ManagerLegsUpdateService extends AbstractGuiService<AirlineManager,
 		boolean isFlight = true;
 		boolean isAircraft = true;
 
-		legId = super.getRequest().getData("id", int.class);
-		userId = super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId();
-		legs = this.repository.findLegById(legId);
-		autorhorise = legs.getFlight().getManager().getUserAccount().getId() == userId;
-		draftMode = legs.getDraftMode();
+		try {
+			legId = super.getRequest().getData("id", int.class);
+			userId = super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId();
+			legs = this.repository.findLegById(legId);
+			autorhorise = legs.getFlight().getManager().getUserAccount().getId() == userId;
+			draftMode = legs.getDraftMode();
 
-		Collection<Aircraft> aircrafts = this.aircraftRepository.findAllAircarftByAirlineId(legs.getFlight().getManager().getAirline().getId());
-		Collection<Airport> airports = this.airportRepository.findAllAirport();
+			Collection<Aircraft> aircrafts = this.aircraftRepository.findAllAircarftByAirlineId(legs.getFlight().getManager().getAirline().getId());
+			Collection<Airport> airports = this.airportRepository.findAllAirport();
 
-		if (draftMode && autorhorise) {
-			Integer departure = super.getRequest().getData("departureAirport", int.class);
-			Integer arrival = super.getRequest().getData("arrivalAirport", int.class);
-			if (departure != 0) {
-				Airport ad = this.airportRepository.findAirportById(departure);
-				isDeparture = airports.contains(ad);
-			}
-			if (arrival != 0) {
-				Airport aa = this.airportRepository.findAirportById(arrival);
-				isArrival = airports.contains(aa);
-			}
+			if (draftMode && autorhorise) {
+				Integer departure = super.getRequest().getData("departureAirport", int.class);
+				Integer arrival = super.getRequest().getData("arrivalAirport", int.class);
+				if (departure != 0) {
+					Airport ad = this.airportRepository.findAirportById(departure);
+					isDeparture = airports.contains(ad);
+				}
+				if (arrival != 0) {
+					Airport aa = this.airportRepository.findAirportById(arrival);
+					isArrival = airports.contains(aa);
+				}
 
-			Integer aircraft = super.getRequest().getData("aircraft", int.class);
-			if (aircraft != 0) {
-				Aircraft a = this.aircraftRepository.findAircraftById(aircraft);
-				isAircraft = aircrafts.contains(a);
+				Integer aircraft = super.getRequest().getData("aircraft", int.class);
+				if (aircraft != 0) {
+					Aircraft a = this.aircraftRepository.findAircraftById(aircraft);
+					isAircraft = aircrafts.contains(a);
+				}
 			}
+		} catch (Throwable E) {
+			draftMode = false;
+			autorhorise = false;
 		}
 		super.getResponse().setAuthorised(draftMode && autorhorise && isFlight && isDeparture && isArrival && isAircraft);
 	}

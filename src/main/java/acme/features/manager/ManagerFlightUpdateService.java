@@ -23,12 +23,19 @@ public class ManagerFlightUpdateService extends AbstractGuiService<AirlineManage
 		int flightId;
 		Flight flight;
 		boolean autorhorise;
+		boolean draftMode;
 
-		flightId = super.getRequest().getData("id", int.class);
-		userId = super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId();
-		flight = this.repository.findOne(flightId);
-		autorhorise = flight.getManager().getUserAccount().getId() == userId;
-		boolean draftMode = flight.getDraftMode();
+		try {
+			flightId = super.getRequest().getData("id", int.class);
+			userId = super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId();
+			flight = this.repository.findOne(flightId);
+			autorhorise = flight.getManager().getUserAccount().getId() == userId;
+			draftMode = flight.getDraftMode();
+		} catch (Throwable E) {
+			draftMode = false;
+			autorhorise = false;
+		}
+
 		super.getResponse().setAuthorised(draftMode && autorhorise);
 	}
 
