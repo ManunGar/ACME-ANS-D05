@@ -57,12 +57,17 @@ public class ManagerLegsDeleteService extends AbstractGuiService<AirlineManager,
 		Legs legs;
 		boolean autorhorise;
 
-		legId = super.getRequest().getData("id", int.class);
-		userId = super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId();
-		legs = this.repository.findLegById(legId);
-		autorhorise = legs.getFlight().getManager().getUserAccount().getId() == userId;
-		boolean draftMode = legs.getDraftMode();
-		super.getResponse().setAuthorised(draftMode && autorhorise);
+		try {
+			legId = super.getRequest().getData("id", int.class);
+			userId = super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId();
+			legs = this.repository.findLegById(legId);
+			autorhorise = legs.getFlight().getManager().getUserAccount().getId() == userId;
+			boolean draftMode = legs.getDraftMode();
+			autorhorise = draftMode && autorhorise;
+		} catch (Throwable E) {
+			autorhorise = false;
+		}
+		super.getResponse().setAuthorised(autorhorise);
 	}
 
 	@Override
